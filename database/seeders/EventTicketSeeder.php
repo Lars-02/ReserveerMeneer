@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Event;
-use App\Models\EventTicket;
+use App\Pivots\EventTicket;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 

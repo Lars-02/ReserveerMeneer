@@ -21,7 +21,13 @@ class UserSeeder extends Seeder
                 'lastname' => 'Meeuwsen',
                 'email' => 'larsmeeuwsen@gmail.com']);
         User::factory()
-            ->count(9)
+            ->create([
+                'username' => 'Maikka39',
+                'firstname' => 'Maik',
+                'lastname' => 'de Kruif',
+                'email' => 'maikka39@gmail.com']);
+        User::factory()
+            ->count(18)
             ->create();
     }
 }

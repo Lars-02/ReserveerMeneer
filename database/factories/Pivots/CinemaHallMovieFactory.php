@@ -2,7 +2,7 @@
 
 namespace Database\Factories\Pivots;
 
-use App\Pivots\CinemaHallMovie;
+use App\Models\CinemaHallMovie;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class CinemaHallMovieFactory extends Factory

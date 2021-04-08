@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Pivots;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class CinemaHallMovie extends Pivot
+class EventTicket extends Pivot
 {
     use HasFactory;
 
@@ -15,4 +15,11 @@ class CinemaHallMovie extends Pivot
      * @var bool
      */
     public $incrementing = true;
+
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    public $table = 'event_tickets';
 }

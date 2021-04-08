@@ -3,8 +3,8 @@
 namespace Database\Factories\Pivots;
 
 use App\Models\Event;
+use App\Models\EventTicket;
 use App\Models\User;
-use App\Pivots\EventTicket;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class EventTicketFactory extends Factory

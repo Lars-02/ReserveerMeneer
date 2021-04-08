@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Pivots\EventTicket;
+use App\Models\EventTicket;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 

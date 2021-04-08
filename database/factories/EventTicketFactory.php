@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Factories\Pivots;
+namespace Database\Factories;
 
 use App\Models\Event;
 use App\Models\EventTicket;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Factories\Pivots;
+namespace Database\Factories;
 
 use App\Models\CinemaHallMovie;
 use Illuminate\Database\Eloquent\Factories\Factory;

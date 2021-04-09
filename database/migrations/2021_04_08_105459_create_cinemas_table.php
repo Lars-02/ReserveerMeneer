@@ -16,6 +16,12 @@ class CreateCinemasTable extends Migration
         Schema::create('cinemas', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+
+            $table->string('city');
+            $table->string('streetname');
+            $table->string('house_number');
+            $table->string('country_code');
+
             $table->timestamps();
         });
     }

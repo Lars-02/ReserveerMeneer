@@ -18,6 +18,12 @@ class CreateEventsTable extends Migration
             $table->string('name')->unique();
             $table->date('startDate');
             $table->date('endDate');
+
+            $table->string('city');
+            $table->string('streetname');
+            $table->string('house_number');
+            $table->string('country_code');
+
             $table->integer('totalTickets');
             $table->integer('maxTicketsPerUser');
             $table->timestamps();

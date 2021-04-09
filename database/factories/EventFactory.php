@@ -25,6 +25,10 @@ class EventFactory extends Factory
             'name' => $this->faker->company,
             'startDate' => $this->faker->dateTimeBetween('-1 weeks'),
             'endDate' => $this->faker->dateTimeBetween('now', '+1 weeks'),
+            'streetname' => $this->faker->streetName,
+            'house_number' => $this->faker->numberBetween(1, 300),
+            'city' => $this->faker->city,
+            'country_code' => $this->faker->countryCode,
             'totalTickets' => $this->faker->numberBetween(100, 10000),
             'maxTicketsPerUser' => $this->faker->numberBetween(2, 8),
         ];

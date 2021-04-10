@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\CinemaHall;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -21,6 +22,8 @@ class DatabaseSeeder extends Seeder
             EventTicketSeeder::class,
             MovieSeeder::class,
             CinemaSeeder::class,
+            CinemaHallSeeder::class,
+            CinemaHallRowSeeder::class,
         ]);
     }
 }

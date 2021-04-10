@@ -2,18 +2,19 @@
 
 namespace Database\Factories;
 
-use App\Models\Cinema;
 use App\Models\CinemaHall;
+use App\Models\CinemaHallRow;
+use App\Models\Model;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class CinemaHallFactory extends Factory
+class CinemaHallRowFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = CinemaHall::class;
+    protected $model = CinemaHallRow::class;
 
     /**
      * Define the model's default state.
@@ -23,7 +24,8 @@ class CinemaHallFactory extends Factory
     public function definition()
     {
         return [
-            'cinema_id' => Cinema::factory(),
+            'cinema_hall_id' => CinemaHall::factory(),
+            'number_of_seats' => $this->faker->numberBetween(10, 30),
         ];
     }
 }

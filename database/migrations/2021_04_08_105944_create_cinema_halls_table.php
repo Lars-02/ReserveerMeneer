@@ -17,8 +17,6 @@ class CreateCinemaHallsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('cinema_id');
 
-            $table->timestamps();
-
             $table->foreign('cinema_id')
                 ->references('id')
                 ->on('cinemas')

@@ -15,11 +15,10 @@ class UserRoleSeeder extends Seeder
      */
     public function run()
     {
-        $roles = Role::all();
         $users = User::all();
 
-        $users->random(rand(0, $users->count()))->each(function ($user) use ($roles) {
-               $user->roles()->save($roles->random());
+        $users->random(rand(0, $users->count()))->each(function ($user) {
+               $user->roles()->save(Role::all()->random());
         });
     }
 }

@@ -17,7 +17,6 @@ class CreateCinemaHallRowsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('cinema_hall_id');
             $table->integer('number_of_seats');
-            $table->timestamps();
 
             $table->foreign('cinema_hall_id')
                 ->references('id')

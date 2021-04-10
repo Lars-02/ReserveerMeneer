@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Cinema;
 use App\Models\CinemaHall;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -22,7 +23,8 @@ class CinemaHallFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'cinema_id' => Cinema::factory(),
+            'number_of_seats' => $this->faker->numberBetween(10, 30)
         ];
     }
 }

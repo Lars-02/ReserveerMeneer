@@ -22,7 +22,8 @@ class MovieFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => $this->faker->catchPhrase,
+            'duration' => date('H:i:s', rand(3600, 10800)),
         ];
     }
 }

@@ -19,6 +19,8 @@ class DatabaseSeeder extends Seeder
             UserRoleSeeder::class,
             EventSeeder::class,
             EventTicketSeeder::class,
+            MovieSeeder::class,
+            CinemaSeeder::class,
         ]);
     }
 }

@@ -22,7 +22,11 @@ class CinemaFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => $this->faker->name,
+            'streetname' => $this->faker->streetName,
+            'house_number' => $this->faker->numberBetween(1, 300),
+            'city' => $this->faker->city,
+            'country_code' => $this->faker->countryCode,
         ];
     }
 }

@@ -16,7 +16,6 @@ class CreateRestaurantTypesTable extends Migration
         Schema::create('restaurant_types', function (Blueprint $table) {
             $table->id();
             $table->string('type')->unique();
-            $table->timestamps();
         });
     }
 

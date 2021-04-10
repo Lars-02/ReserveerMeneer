@@ -15,7 +15,7 @@ class CreateOpeningHoursTable extends Migration
     {
         Schema::create('opening_hours', function (Blueprint $table) {
             $table->id();
-            $table->unique('restaurant_id', 'day');
+            $table->unique(['restaurant_id', 'day']);
             $table->unsignedBigInteger('restaurant_id');
             $table->integer('day');
             $table->time('opening_at');

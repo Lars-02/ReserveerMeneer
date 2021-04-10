@@ -15,4 +15,12 @@ class MovieSlot extends Pivot
      * @var bool
      */
     public $incrementing = true;
+
+    public function cinemaHall() {
+        return $this->belongsTo(CinemaHall::class);
+    }
+
+    public function movie() {
+        return $this->belongsTo(Movie::class);
+    }
 }

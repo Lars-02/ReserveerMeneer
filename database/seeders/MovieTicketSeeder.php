@@ -25,7 +25,7 @@ class MovieTicketSeeder extends Seeder
         $users->each(function ($user) use ($movieSlots, $users) {
             $movieSlots->random(rand(1, 3))->each(function ($movieSlot) use ($user, $users) {
                 $row =  rand(0, $movieSlot->cinemaHall->totalRows() - 1);
-                MovieTicket::factory()->count(rand(1, floor($movieSlot->cinemaHall->totalSeats() / $users->count())))->create([
+                MovieTicket::factory()->count(rand(1, floor($movieSlot->cinemaHall->totalSeats() / $users->count())))->minimumAge($movieSlot->movie->minimum_age)->create([
                         'movie_slot_id' => $movieSlot,
                         'user_id' => $user,
                         'row' => $row,

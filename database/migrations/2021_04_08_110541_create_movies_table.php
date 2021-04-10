@@ -17,6 +17,7 @@ class CreateMoviesTable extends Migration
             $table->id();
             $table->string('name')->unique();
             $table->time('duration');
+            $table->integer('minimum_age');
             $table->timestamps();
         });
     }

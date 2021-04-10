@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Reservation;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class ReservationSeeder extends Seeder
@@ -13,6 +15,8 @@ class ReservationSeeder extends Seeder
      */
     public function run()
     {
-        //
+        User::all()->each(function ($user) {
+            Reservation::factory()->count(rand(0, 4))->create(['user_id' => $user]);
+        });
     }
 }

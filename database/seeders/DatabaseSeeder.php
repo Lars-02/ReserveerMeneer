@@ -29,6 +29,7 @@ class DatabaseSeeder extends Seeder
             RestaurantTypeSeeder::class,
             RestaurantSeeder::class,
             OpeningHoursSeeder::class,
+            ReservationSeeder::class,
         ]);
     }
 }

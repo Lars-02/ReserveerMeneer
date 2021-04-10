@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
             CinemaSeeder::class,
             CinemaHallSeeder::class,
             CinemaHallRowSeeder::class,
+            MovieSlotSeeder::class,
         ]);
     }
 }

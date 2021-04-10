@@ -15,11 +15,11 @@ class CreateMovieSlotTable extends Migration
     {
         Schema::create('movie_slot', function (Blueprint $table) {
             $table->id();
-            $table->unique('cinema_hall_id', 'startingAt');
+            $table->unique(['cinema_hall_id', 'starting_at']);
             $table->unsignedBigInteger('cinema_hall_id');
             $table->unsignedBigInteger('movie_id');
 
-            $table->dateTime('startingAt');
+            $table->dateTime('starting_at');
             $table->timestamps();
 
             $table->foreign('cinema_hall_id')

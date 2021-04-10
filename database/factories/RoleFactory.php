@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Role;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use phpDocumentor\Reflection\Types\Null_;
 
 class RoleFactory extends Factory
 {
@@ -22,7 +23,8 @@ class RoleFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => $this->faker->name,
+            'label' => $this->faker->sentence,
         ];
     }
 }

@@ -25,7 +25,8 @@ class DatabaseSeeder extends Seeder
             CinemaHallRowSeeder::class,
             MovieSlotSeeder::class,
             MovieTicketSeeder::class,
-            RestaurantTypeSeeder::class
+//            RestaurantTypeSeeder::class,
+            RestaurantSeeder::class,
         ]);
     }
 }

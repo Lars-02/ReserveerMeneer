@@ -28,7 +28,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return MovieSlot::all()->find(1)->cinemaHall->cinemaHallRows->offsetGet(0)->number_of_seats;
-//        return view('home');
+        return view('home');
     }
 }

@@ -2,11 +2,11 @@
 <dataSource name="reserveermeneer@localhost">
   <database-model serializer="dbm" dbms="MARIADB" family-id="MARIADB" format-version="4.20">
     <root id="1">
-      <ServerVersion>10.4.17</ServerVersion>
+      <ServerVersion>10.4.19</ServerVersion>
       <DefaultEngine>InnoDB</DefaultEngine>
       <DefaultCasing>lower/lower</DefaultCasing>
     </root>
-    <schema id="2" parent="1" name="battlehill">
+    <schema id="2" parent="1" name="goudendraak">
       <Collation>utf8mb4_general_ci</Collation>
     </schema>
     <schema id="3" parent="1" name="information_schema">
@@ -1722,8 +1722,9 @@ starting_at</ColNames>
       <Position>7</Position>
       <DataType>timestamp|0s</DataType>
     </column>
-    <index id="478" parent="348" name="day">
-      <ColNames>restaurant_id</ColNames>
+    <index id="478" parent="348" name="opening_hours_restaurant_id_day_unique">
+      <ColNames>restaurant_id
+day</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
@@ -1732,9 +1733,10 @@ starting_at</ColNames>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="480" parent="348" name="day">
-      <ColNames>restaurant_id</ColNames>
-      <UnderlyingIndexName>day</UnderlyingIndexName>
+    <key id="480" parent="348" name="opening_hours_restaurant_id_day_unique">
+      <ColNames>restaurant_id
+day</ColNames>
+      <UnderlyingIndexName>opening_hours_restaurant_id_day_unique</UnderlyingIndexName>
     </key>
     <foreign-key id="481" parent="348" name="opening_hours_restaurant_id_foreign">
       <ColNames>restaurant_id</ColNames>

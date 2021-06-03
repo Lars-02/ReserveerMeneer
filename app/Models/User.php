@@ -12,20 +12,6 @@ class User extends Authenticatable
     use HasFactory, Notifiable;
 
     /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'username',
-        'firstname',
-        'lastname',
-        'birthday',
-        'email',
-        'password',
-    ];
-
-    /**
      * The attributes that should be hidden for arrays.
      *
      * @var array
@@ -58,5 +44,10 @@ class User extends Authenticatable
 
     public function events() {
         return $this->belongsToMany(Event::class, 'event_tickets')->using(EventTicket::class);
+    }
+
+    public function getFullNameAttribute()
+    {
+        return $this->firstname.' '.$this->lastname;
     }
 }

@@ -1,7 +1,8 @@
 <nav class="flex shadow p-2 text-gray-800 text-lg font-medium bg-white select-none">
     <div class="flex-none self-center p-2 mx-4">
         <a href="{{ url('/') }}">
-            <div class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-yellow-300 to-purple-600 hover:from-yellow-500 hover:to-purple-900">
+            <div
+                class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-yellow-300 to-purple-600 hover:from-yellow-500 hover:to-purple-900">
                 Reserveermeneer
             </div>
         </a>
@@ -10,10 +11,19 @@
         <div class="flex-none self-center p-2 hover:text-purple-500">
             <a href="{{ route('home') }}">Home</a>
         </div>
-
     @endauth
+
 <!-- Spreader -->
     <div class="flex-auto"></div>
+
+
+    <div class="flex-none self-center p-2 hover:text-purple-500">
+        <a href="{{ route('locale', 'en') }}">EN</a>
+    </div>
+    <div class="flex-none self-center p-2 hover:text-purple-500">
+        <a href="{{ route('locale', 'nl') }}">NL</a>
+    </div>
+
     @guest()
         <div class="flex-none self-center p-2 hover:text-blue-700">
             <a href="{{ route('login') }}">Login</a>

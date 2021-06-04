@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <div>
-        Welcome on reserveer meneer
+    <div class="flex flex-wrap">
+        <div>
+            <h1>{{ __('cinema.title') }}</h1>
+        </div>
     </div>
 @endsection

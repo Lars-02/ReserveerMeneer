@@ -7,15 +7,14 @@
     ]
 @endphp
 
-<div class="relative" x-data="{ open: false }" x-on:click.away="open = false">
-    <div x-on:mouseenter="open = true">
+<div class="relative" x-data="{ open: false }" x-on:mouseenter="open = true" x-on:mouseleave="open = false">
+    <div>
         {{ $trigger }}
     </div>
 
     <div
         class="absolute {{ $alignmentClasses[$alignment] }} z-20 w-48 rounded-md shadow-lg py-1.5 bg-white"
         x-show="open"
-        x-on:mouseleave="open = false"
         x-transition:enter="transition transform duration-300"
         x-transition:enter-start="opacity-0 scale-95"
         x-transition:enter-end="opacity-100 scale-100"

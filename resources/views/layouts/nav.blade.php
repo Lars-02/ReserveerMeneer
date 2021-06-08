@@ -41,17 +41,10 @@
                 </x-slot>
                 <x-dropdown-link
                     href="{{ route('logout') }}"
-                    onclick="e.preventDefault(); document.getElementById('logout-form').submit();"
+                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
                 >
                     Logout
                 </x-dropdown-link>
-                <x-dropdown-link>Hey</x-dropdown-link>
-                <x-dropdown-link>Hey</x-dropdown-link>
-                <x-dropdown-link>Hey</x-dropdown-link>
-                <x-dropdown-link>Hey</x-dropdown-link>
-                <x-dropdown-link>Hey</x-dropdown-link>
-                <x-dropdown-link>Hey</x-dropdown-link>
-                <x-dropdown-link>Hey</x-dropdown-link>
             </x-dropdown>
         </div>
 

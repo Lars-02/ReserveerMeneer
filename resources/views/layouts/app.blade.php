@@ -24,7 +24,7 @@
 
         @include('layouts.nav')
 
-        <main>
+        <main class="w-10/12 xl:w-11/12 mx-auto m-4">
             @yield('content')
         </main>
     </div>

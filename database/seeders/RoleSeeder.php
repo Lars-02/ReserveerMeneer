@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Ability;
 use App\Models\Role;
 use Illuminate\Database\Seeder;
 
@@ -14,9 +15,10 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
-        Role::factory()->create([
+        $admin = Role::factory()->create([
             'name' => 'Admin',
             'label' => NULL,
         ]);
+        $admin->abilities()->sync(Ability::all()->where('name','*.*'));
     }
 }

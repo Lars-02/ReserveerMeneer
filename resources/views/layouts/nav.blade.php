@@ -12,6 +12,9 @@
             <a href="{{ route('home') }}">Home</a>
         </div>
     @endauth
+    <div class="flex-none self-center p-2 hover:text-purple-500">
+        <a href="{{ route('event.index') }}">Events</a>
+    </div>
 
 <!-- Spreader -->
     <div class="flex-auto"></div>

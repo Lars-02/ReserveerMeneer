@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\TicketController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -18,13 +20,19 @@ use Illuminate\Support\Facades\Route;
 Route::get('/locale/{locale}', function ($locale) {
     if (file_exists(resource_path("lang/$locale")))
         session()->put('locale', $locale);
-    return redirect('home');
+    return redirect()->back();
 })->name('locale');
 
 Route::get('/', function () {
-
     return view('welcome');
 });
+
+Route::resource('event', EventController::class);
+
+Route::get('eventticket/{event}/buy', [TicketController::class, 'create'])
+    ->name('eventticket.create');
+Route::resource('eventticket', TicketController::class)
+    ->except('create', 'show');
 
 Auth::routes();
 

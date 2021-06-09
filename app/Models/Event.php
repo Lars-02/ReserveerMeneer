@@ -12,4 +12,13 @@ class Event extends Model
     public function users() {
         return $this->belongsToMany(User::class, 'event_tickets')->using(EventTicket::class);
     }
+
+    public function tickets() {
+        return $this->hasMany(EventTicket::class);
+    }
+
+    public function getRemainingTicketsAttribute()
+    {
+        return $this->total_tickets - $this->tickets->count();
+    }
 }

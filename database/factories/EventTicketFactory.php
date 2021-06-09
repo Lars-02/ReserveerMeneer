@@ -26,12 +26,12 @@ class EventTicketFactory extends Factory
         return [
             'event_id' => Event::factory(),
             'user_id' => User::factory(),
-            'startingDay' => $this->faker->numberBetween(0, 3),
-            'duration' => $this->faker->numberBetween(1, 3),
+            'start_at' => $this->faker->date(),
+            'end_at' => $this->faker->date(),
             'firstname' => $this->faker->firstName,
             'lastname' => $this->faker->lastName,
             'birthday' => $this->faker->date(),
-            'photoPath' => $this->faker->imageUrl(),
+            'photo_path' => $this->faker->imageUrl(),
         ];
     }
 }

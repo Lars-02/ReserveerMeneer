@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\EventTicketController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TicketController;
 use Illuminate\Support\Facades\Auth;
@@ -29,10 +30,14 @@ Route::get('/', function () {
 
 Route::resource('event', EventController::class);
 
-Route::get('eventticket/{event}/buy', [TicketController::class, 'create'])
-    ->name('eventticket.create');
-Route::resource('eventticket', TicketController::class)
-    ->except('create', 'show');
+Route::group(['prefix' => 'event', 'as' => 'event.'], function () {
+    Route::get('{eventTicket}', [EventTicketController::class, 'show'])
+        ->name('ticket.show');
+    Route::post('{event}', [EventTicketController::class, 'store'])
+        ->name('ticket.store');
+    Route::get('{event}/buy', [EventTicketController::class, 'create'])
+        ->name('buy');
+});
 
 Auth::routes();
 

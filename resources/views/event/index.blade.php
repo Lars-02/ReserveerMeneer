@@ -21,7 +21,7 @@
                             <x-button>{{ __('general.edit') }}</x-button>
                         </a>
                     @endcan
-                    <a href="{{ route('eventticket.create', $event) }}">
+                    <a href="{{ route('event.buy', $event) }}">
                         <x-button>{{ __('event.buy') }}</x-button>
                     </a>
                 </div>

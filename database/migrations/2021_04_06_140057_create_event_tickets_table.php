@@ -18,13 +18,13 @@ class CreateEventTicketsTable extends Migration
             $table->unsignedBigInteger('event_id');
             $table->unsignedBigInteger('user_id');
 
-            $table->integer('startingDay');
-            $table->integer('duration');
+            $table->date('start_at');
+            $table->date('end_at');
 
             $table->string('firstname');
             $table->string('lastname');
             $table->date('birthday');
-            $table->string('photoPath');
+            $table->string('photo_path');
 
             $table->timestamps();
 

@@ -10,6 +10,8 @@ class EventTicket extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     /**
      * Indicates if the IDs are auto-incrementing.
      *

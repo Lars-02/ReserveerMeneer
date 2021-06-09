@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\EventTicketRequest;
 use App\Models\Event;
 use App\Models\EventTicket;
-use Illuminate\Http\Request;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Response;
 
-class TicketController extends Controller
+class EventTicketController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -23,22 +26,26 @@ class TicketController extends Controller
      * Show the form for creating a new resource.
      *
      * @param Event $event
-     * @return Response
+     * @return Application|Factory|View|Response
      */
     public function create(Event $event)
     {
-        //
+        return view('event.ticket.create', compact(['event']));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
-     * @return Response
+     * @param EventTicketRequest $request
+     * @param Event $event
+     * @return Application|\Illuminate\Http\RedirectResponse|Response|\Illuminate\Routing\Redirector
      */
-    public function store(Request $request)
+    public function store(EventTicketRequest $request, Event $event)
     {
-        //
+        $validated = $request->validated();
+        $validated['photo_path'] = $validated['photo_path']->store('photos');
+        $ticket = EventTicket::create($validated);
+        return redirect(route('serving.show', compact(['ticket'])));
     }
 
     /**
@@ -66,11 +73,11 @@ class TicketController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
+     * @param EventTicketRequest $request
      * @param EventTicket $eventTicket
      * @return Response
      */
-    public function update(Request $request, EventTicket $eventTicket)
+    public function update(EventTicketRequest $request, EventTicket $eventTicket)
     {
         //
     }

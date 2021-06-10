@@ -21,9 +21,11 @@
                             <x-button>{{ __('general.edit') }}</x-button>
                         </a>
                     @endcan
-                    <a href="{{ route('event.buy', $event) }}">
-                        <x-button>{{ __('event.buy') }}</x-button>
-                    </a>
+                    @can('create', \App\Models\EventTicket::class)
+                        <a href="{{ route('event.buy', $event) }}">
+                            <x-button>{{ __('event.buy') }}</x-button>
+                        </a>
+                    @endcan
                 </div>
             </div>
         @endforeach

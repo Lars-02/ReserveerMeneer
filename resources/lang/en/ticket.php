@@ -1,7 +1,8 @@
 <?php
 
 return [
-    'title' => 'My Events',
+    'title' => 'Event Tickets of :name',
+    'my_title' => 'My Event Tickets',
     'firstname' => 'Firstname',
     'lastname' => 'Lastname',
     'date' => 'Date',

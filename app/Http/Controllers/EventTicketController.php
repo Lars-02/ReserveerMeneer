@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\EventTicketRequest;
 use App\Models\Event;
 use App\Models\EventTicket;
+use App\Models\User;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -33,9 +34,11 @@ class EventTicketController extends Controller
      *
      * @return void
      */
-    public function index()
+    public function index(User $user = null)
     {
-        $tickets = EventTicket::where('user_id', Auth::user()->id)->get();
+        if(empty($user))
+            $user = Auth::user();
+        $tickets = EventTicket::where('user_id', $user->id)->get();
         return view('event.ticket.index', compact(['tickets']));
     }
 

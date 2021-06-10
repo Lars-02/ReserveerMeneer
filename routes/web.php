@@ -30,7 +30,7 @@ Route::get('/', function () {
 
 
 Route::group(['prefix' => 'event', 'as' => 'event.'], function () {
-    Route::get('ticket', [EventTicketController::class, 'index'])
+    Route::get('ticket/{user?}', [EventTicketController::class, 'index'])
         ->name('ticket.index');
     Route::post('{event}', [EventTicketController::class, 'store'])
         ->name('ticket.store');

@@ -1,7 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1 class="my-6">{{ __('ticket.title') }}</h1>
+    @empty(request()->route('user'))
+        <h1 class="my-6">{{ __('ticket.my_title') }}</h1>
+    @else
+        <h1 class="my-6">{{ __('ticket.title', ['name' => request()->route('user')->fullname]) }}</h1>
+    @endempty
     <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
         @foreach($tickets as $event_ticket)
             <div class="h-full bg-white rounded shadow p-4  flex flex-col content-between ">
@@ -18,11 +22,11 @@
                 <p>{{ $event_ticket->event->city . ', ' . $event_ticket->event->country_code }}</p>
                 <div class="flex justify-between mt-4">
                     @can('delete', $event_ticket)
-                    <form action="{{ route('event.ticket.destroy', $event_ticket) }}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <x-button type="submit" class="bg-red-600">{{ __('general.destroy') }}</x-button>
-                    </form>
+                        <form action="{{ route('event.ticket.destroy', $event_ticket) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <x-button type="submit" class="bg-red-600">{{ __('general.destroy') }}</x-button>
+                        </form>
                     @endcan
                 </div>
             </div>

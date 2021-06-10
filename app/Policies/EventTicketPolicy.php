@@ -4,6 +4,7 @@ namespace App\Policies;
 
 use App\Models\EventTicket;
 use App\Models\User;
+use Auth;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class EventTicketPolicy
@@ -18,7 +19,7 @@ class EventTicketPolicy
      */
     public function before(User $user)
     {
-        if ($user->abilities()->contains('*.*') || $user->abilities()->contains('event.*'))
+        if ($user->abilities()->contains('*.*') || $user->abilities()->contains('event_ticket.*'))
             return true;
     }
 
@@ -30,7 +31,9 @@ class EventTicketPolicy
      */
     public function viewAny(User $user)
     {
-        return true;
+        if (empty(request()->route('user')))
+            return true;
+        return $user->id === request()->route('user')->id;
     }
 
     /**

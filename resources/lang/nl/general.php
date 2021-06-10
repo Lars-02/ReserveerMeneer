@@ -2,6 +2,6 @@
 
 return [
     'edit' => 'Bewerken',
-    'save' => 'Opslaan',
+    'submit' => 'Opslaan',
     'delete' => 'Verwijderen',
 ];

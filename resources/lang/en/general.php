@@ -2,6 +2,6 @@
 
 return [
     'edit' => 'Edit',
-    'save' => 'Save',
+    'submit' => 'Save',
     'delete' => 'Delete',
 ];

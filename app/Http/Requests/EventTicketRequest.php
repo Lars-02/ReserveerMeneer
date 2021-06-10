@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\MaxUserTickets;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
@@ -43,7 +44,7 @@ class EventTicketRequest extends FormRequest
         return [
             'user_id' => 'required|numeric|exists:users,id',
             'event_id' => 'required|numeric|exists:events,id',
-            'total_tickets' => Rule::max(),
+            'total_tickets' => new MaxUserTickets(),
             'firstname' => [
                 'required', 'string', 'between:2,24', "regex:/^[a-z ,.'-]+$/i",
                 Rule::unique('event_tickets')->where(function ($query) use ($request) {
@@ -58,7 +59,7 @@ class EventTicketRequest extends FormRequest
             'birthday' => 'required|date|after_or_equal:-100 Years|before_or_equal:-16 Years',
             'photo_path' => 'required|image|max:2048',
             'start_at' => 'required|date|after_or_equal:' . $this->route('event')->start_date,
-            'end_at' => 'required|date|after:start_at|before_or_equal:' . $this->route('event')->end_date
+            'end_at' => 'required|date|after_or_equal:start_at|before_or_equal:' . $this->route('event')->end_date
         ];
     }
 }

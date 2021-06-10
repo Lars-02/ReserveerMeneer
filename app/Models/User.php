@@ -101,7 +101,7 @@ class User extends Authenticatable
     }
 
     public function eventTickets() {
-        return $this->belongsToMany(EventTicket::class, 'event_tickets');
+        return $this->hasMany(EventTicket::class);
     }
 
     public function getFullNameAttribute()

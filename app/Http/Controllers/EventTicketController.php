@@ -43,7 +43,6 @@ class EventTicketController extends Controller
      */
     public function create(Event $event)
     {
-        dd(Auth::user()->eventTickets);
         return view('event.ticket.create', compact(['event']));
     }
 
@@ -58,8 +57,9 @@ class EventTicketController extends Controller
     {
         $validated = $request->validated();
         $validated['photo_path'] = $validated['photo_path']->store('photos');
+        unset($validated['total_tickets']);
         $ticket = EventTicket::create($validated);
-        return redirect(route('event.ticket.show', compact(['ticket'])));
+        return redirect(route('event.ticket.show', ['event_ticket' => $ticket]));
     }
 
     /**
@@ -70,7 +70,7 @@ class EventTicketController extends Controller
      */
     public function show(EventTicket $eventTicket)
     {
-        return 'derp';
+        return 'success';
     }
 
     /**

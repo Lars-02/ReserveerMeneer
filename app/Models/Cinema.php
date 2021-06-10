@@ -2,8 +2,13 @@
 
 namespace App\Models;
 
+use Database\Factories\CinemaFactory;
+use Eloquent;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 
 /**
  * App\Models\Cinema
@@ -14,23 +19,23 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $streetname
  * @property string $house_number
  * @property string $country_code
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\CinemaHall[] $cinemaHalls
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property-read Collection|CinemaHall[] $cinemaHalls
  * @property-read int|null $cinema_halls_count
- * @method static \Database\Factories\CinemaFactory factory(...$parameters)
- * @method static \Illuminate\Database\Eloquent\Builder|Cinema newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Cinema newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Cinema query()
- * @method static \Illuminate\Database\Eloquent\Builder|Cinema whereCity($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Cinema whereCountryCode($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Cinema whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Cinema whereHouseNumber($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Cinema whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Cinema whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Cinema whereStreetname($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Cinema whereUpdatedAt($value)
- * @mixin \Eloquent
+ * @method static CinemaFactory factory(...$parameters)
+ * @method static Builder|Cinema newModelQuery()
+ * @method static Builder|Cinema newQuery()
+ * @method static Builder|Cinema query()
+ * @method static Builder|Cinema whereCity($value)
+ * @method static Builder|Cinema whereCountryCode($value)
+ * @method static Builder|Cinema whereCreatedAt($value)
+ * @method static Builder|Cinema whereHouseNumber($value)
+ * @method static Builder|Cinema whereId($value)
+ * @method static Builder|Cinema whereName($value)
+ * @method static Builder|Cinema whereStreetname($value)
+ * @method static Builder|Cinema whereUpdatedAt($value)
+ * @mixin Eloquent
  */
 class Cinema extends Model
 {

@@ -2,6 +2,9 @@
 
 namespace App\Models;
 
+use Database\Factories\RestaurantTypeFactory;
+use Eloquent;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,13 +13,13 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @property int $id
  * @property string $type
- * @method static \Database\Factories\RestaurantTypeFactory factory(...$parameters)
- * @method static \Illuminate\Database\Eloquent\Builder|RestaurantType newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|RestaurantType newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|RestaurantType query()
- * @method static \Illuminate\Database\Eloquent\Builder|RestaurantType whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|RestaurantType whereType($value)
- * @mixin \Eloquent
+ * @method static RestaurantTypeFactory factory(...$parameters)
+ * @method static Builder|RestaurantType newModelQuery()
+ * @method static Builder|RestaurantType newQuery()
+ * @method static Builder|RestaurantType query()
+ * @method static Builder|RestaurantType whereId($value)
+ * @method static Builder|RestaurantType whereType($value)
+ * @mixin Eloquent
  */
 class RestaurantType extends Model
 {

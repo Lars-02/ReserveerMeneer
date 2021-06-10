@@ -30,14 +30,14 @@ use Illuminate\Support\Collection;
  * @property string|null $remember_token
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\EventTicket[] $eventTickets
+ * @property-read \Illuminate\Database\Eloquent\Collection|EventTicket[] $eventTickets
  * @property-read int|null $event_tickets_count
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Event[] $events
+ * @property-read \Illuminate\Database\Eloquent\Collection|Event[] $events
  * @property-read int|null $events_count
  * @property-read mixed $full_name
  * @property-read DatabaseNotificationCollection|DatabaseNotification[] $notifications
  * @property-read int|null $notifications_count
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Role[] $roles
+ * @property-read \Illuminate\Database\Eloquent\Collection|Role[] $roles
  * @property-read int|null $roles_count
  * @method static UserFactory factory(...$parameters)
  * @method static Builder|User newModelQuery()

@@ -2,8 +2,12 @@
 
 namespace App\Models;
 
+use Database\Factories\OpeningHoursFactory;
+use Eloquent;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 
 /**
  * App\Models\OpeningHours
@@ -13,20 +17,20 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $day
  * @property string $opening_at
  * @property string $closing_at
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @method static \Database\Factories\OpeningHoursFactory factory(...$parameters)
- * @method static \Illuminate\Database\Eloquent\Builder|OpeningHours newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|OpeningHours newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|OpeningHours query()
- * @method static \Illuminate\Database\Eloquent\Builder|OpeningHours whereClosingAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|OpeningHours whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|OpeningHours whereDay($value)
- * @method static \Illuminate\Database\Eloquent\Builder|OpeningHours whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|OpeningHours whereOpeningAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|OpeningHours whereRestaurantId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|OpeningHours whereUpdatedAt($value)
- * @mixin \Eloquent
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @method static OpeningHoursFactory factory(...$parameters)
+ * @method static Builder|OpeningHours newModelQuery()
+ * @method static Builder|OpeningHours newQuery()
+ * @method static Builder|OpeningHours query()
+ * @method static Builder|OpeningHours whereClosingAt($value)
+ * @method static Builder|OpeningHours whereCreatedAt($value)
+ * @method static Builder|OpeningHours whereDay($value)
+ * @method static Builder|OpeningHours whereId($value)
+ * @method static Builder|OpeningHours whereOpeningAt($value)
+ * @method static Builder|OpeningHours whereRestaurantId($value)
+ * @method static Builder|OpeningHours whereUpdatedAt($value)
+ * @mixin Eloquent
  */
 class OpeningHours extends Model
 {

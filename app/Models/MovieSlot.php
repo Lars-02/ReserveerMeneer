@@ -2,8 +2,12 @@
 
 namespace App\Models;
 
+use Database\Factories\MovieSlotFactory;
+use Eloquent;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\Pivot;
+use Illuminate\Support\Carbon;
 
 /**
  * App\Models\MovieSlot
@@ -12,21 +16,21 @@ use Illuminate\Database\Eloquent\Relations\Pivot;
  * @property int $cinema_hall_id
  * @property int $movie_id
  * @property string $starting_at
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \App\Models\CinemaHall $cinemaHall
- * @property-read \App\Models\Movie $movie
- * @method static \Database\Factories\MovieSlotFactory factory(...$parameters)
- * @method static \Illuminate\Database\Eloquent\Builder|MovieSlot newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|MovieSlot newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|MovieSlot query()
- * @method static \Illuminate\Database\Eloquent\Builder|MovieSlot whereCinemaHallId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|MovieSlot whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|MovieSlot whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|MovieSlot whereMovieId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|MovieSlot whereStartingAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|MovieSlot whereUpdatedAt($value)
- * @mixin \Eloquent
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property-read CinemaHall $cinemaHall
+ * @property-read Movie $movie
+ * @method static MovieSlotFactory factory(...$parameters)
+ * @method static Builder|MovieSlot newModelQuery()
+ * @method static Builder|MovieSlot newQuery()
+ * @method static Builder|MovieSlot query()
+ * @method static Builder|MovieSlot whereCinemaHallId($value)
+ * @method static Builder|MovieSlot whereCreatedAt($value)
+ * @method static Builder|MovieSlot whereId($value)
+ * @method static Builder|MovieSlot whereMovieId($value)
+ * @method static Builder|MovieSlot whereStartingAt($value)
+ * @method static Builder|MovieSlot whereUpdatedAt($value)
+ * @mixin Eloquent
  */
 class MovieSlot extends Pivot
 {

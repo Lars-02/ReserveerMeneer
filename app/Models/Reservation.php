@@ -2,8 +2,12 @@
 
 namespace App\Models;
 
+use Database\Factories\ReservationFactory;
+use Eloquent;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 
 /**
  * App\Models\Reservation
@@ -14,21 +18,21 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $time_slot
  * @property int $number_of_guests
  * @property int $queued
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @method static \Database\Factories\ReservationFactory factory(...$parameters)
- * @method static \Illuminate\Database\Eloquent\Builder|Reservation newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Reservation newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Reservation query()
- * @method static \Illuminate\Database\Eloquent\Builder|Reservation whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Reservation whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Reservation whereNumberOfGuests($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Reservation whereQueued($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Reservation whereRestaurantId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Reservation whereTimeSlot($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Reservation whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Reservation whereUserId($value)
- * @mixin \Eloquent
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @method static ReservationFactory factory(...$parameters)
+ * @method static Builder|Reservation newModelQuery()
+ * @method static Builder|Reservation newQuery()
+ * @method static Builder|Reservation query()
+ * @method static Builder|Reservation whereCreatedAt($value)
+ * @method static Builder|Reservation whereId($value)
+ * @method static Builder|Reservation whereNumberOfGuests($value)
+ * @method static Builder|Reservation whereQueued($value)
+ * @method static Builder|Reservation whereRestaurantId($value)
+ * @method static Builder|Reservation whereTimeSlot($value)
+ * @method static Builder|Reservation whereUpdatedAt($value)
+ * @method static Builder|Reservation whereUserId($value)
+ * @mixin Eloquent
  */
 class Reservation extends Model
 {

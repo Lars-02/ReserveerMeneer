@@ -2,8 +2,12 @@
 
 namespace App\Models;
 
+use Database\Factories\MovieTicketFactory;
+use Eloquent;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 
 /**
  * App\Models\MovieTicket
@@ -16,23 +20,23 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $firstname
  * @property string $lastname
  * @property string $birthday
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @method static \Database\Factories\MovieTicketFactory factory(...$parameters)
- * @method static \Illuminate\Database\Eloquent\Builder|MovieTicket newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|MovieTicket newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|MovieTicket query()
- * @method static \Illuminate\Database\Eloquent\Builder|MovieTicket whereBirthday($value)
- * @method static \Illuminate\Database\Eloquent\Builder|MovieTicket whereColumn($value)
- * @method static \Illuminate\Database\Eloquent\Builder|MovieTicket whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|MovieTicket whereFirstname($value)
- * @method static \Illuminate\Database\Eloquent\Builder|MovieTicket whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|MovieTicket whereLastname($value)
- * @method static \Illuminate\Database\Eloquent\Builder|MovieTicket whereMovieSlotId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|MovieTicket whereRow($value)
- * @method static \Illuminate\Database\Eloquent\Builder|MovieTicket whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|MovieTicket whereUserId($value)
- * @mixin \Eloquent
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @method static MovieTicketFactory factory(...$parameters)
+ * @method static Builder|MovieTicket newModelQuery()
+ * @method static Builder|MovieTicket newQuery()
+ * @method static Builder|MovieTicket query()
+ * @method static Builder|MovieTicket whereBirthday($value)
+ * @method static Builder|MovieTicket whereColumn($value)
+ * @method static Builder|MovieTicket whereCreatedAt($value)
+ * @method static Builder|MovieTicket whereFirstname($value)
+ * @method static Builder|MovieTicket whereId($value)
+ * @method static Builder|MovieTicket whereLastname($value)
+ * @method static Builder|MovieTicket whereMovieSlotId($value)
+ * @method static Builder|MovieTicket whereRow($value)
+ * @method static Builder|MovieTicket whereUpdatedAt($value)
+ * @method static Builder|MovieTicket whereUserId($value)
+ * @mixin Eloquent
  */
 class MovieTicket extends Model
 {

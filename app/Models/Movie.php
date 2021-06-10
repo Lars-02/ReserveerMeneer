@@ -2,8 +2,13 @@
 
 namespace App\Models;
 
+use Database\Factories\MovieFactory;
+use Eloquent;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 
 /**
  * App\Models\Movie
@@ -12,21 +17,21 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $name
  * @property string $duration
  * @property int $minimum_age
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\MovieSlot[] $movieSlots
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property-read Collection|MovieSlot[] $movieSlots
  * @property-read int|null $movie_slots_count
- * @method static \Database\Factories\MovieFactory factory(...$parameters)
- * @method static \Illuminate\Database\Eloquent\Builder|Movie newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Movie newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Movie query()
- * @method static \Illuminate\Database\Eloquent\Builder|Movie whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Movie whereDuration($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Movie whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Movie whereMinimumAge($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Movie whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Movie whereUpdatedAt($value)
- * @mixin \Eloquent
+ * @method static MovieFactory factory(...$parameters)
+ * @method static Builder|Movie newModelQuery()
+ * @method static Builder|Movie newQuery()
+ * @method static Builder|Movie query()
+ * @method static Builder|Movie whereCreatedAt($value)
+ * @method static Builder|Movie whereDuration($value)
+ * @method static Builder|Movie whereId($value)
+ * @method static Builder|Movie whereMinimumAge($value)
+ * @method static Builder|Movie whereName($value)
+ * @method static Builder|Movie whereUpdatedAt($value)
+ * @mixin Eloquent
  */
 class Movie extends Model
 {

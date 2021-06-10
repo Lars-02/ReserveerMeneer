@@ -74,7 +74,7 @@ class EventTicketController extends Controller
      */
     public function show(EventTicket $eventTicket)
     {
-
+        //
     }
 
     /**
@@ -108,7 +108,8 @@ class EventTicketController extends Controller
      */
     public function destroy(EventTicket $eventTicket)
     {
-        //
+        $eventTicket->delete();
+        return redirect()->back();
     }
 
     public function downloadJSON(): BinaryFileResponse

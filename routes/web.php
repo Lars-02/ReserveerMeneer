@@ -29,17 +29,19 @@ Route::get('/', function () {
 });
 
 
-
 Route::group(['prefix' => 'event', 'as' => 'event.'], function () {
     Route::get('ticket', [EventTicketController::class, 'index'])
         ->name('ticket.index');
     Route::post('{event}', [EventTicketController::class, 'store'])
         ->name('ticket.store');
+    Route::delete('ticket/{event_ticket}', [EventTicketController::class, 'destroy'])
+        ->name('ticket.destroy');
     Route::get('{event}/buy', [EventTicketController::class, 'create'])
         ->name('buy');
 });
 
-Route::resource('event', EventController::class);
+Route::resource('event', EventController::class)
+    ->except('show');
 
 Auth::routes();
 

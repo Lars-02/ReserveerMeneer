@@ -68,4 +68,9 @@ class EventTicket extends Model
     public function user() {
         return $this->belongsTo(User::class);
     }
+
+    public function getFullNameAttribute()
+    {
+        return $this->firstname.' '.$this->lastname;
+    }
 }

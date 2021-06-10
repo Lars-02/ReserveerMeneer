@@ -3,5 +3,5 @@
 return [
     'edit' => 'Bewerken',
     'submit' => 'Opslaan',
-    'delete' => 'Verwijderen',
+    'destroy' => 'Verwijderen',
 ];

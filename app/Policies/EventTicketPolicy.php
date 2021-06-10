@@ -77,7 +77,7 @@ class EventTicketPolicy
      */
     public function delete(User $user, EventTicket $eventTicket)
     {
-        //
+        return $user->id === $eventTicket->user_id;
     }
 
     /**

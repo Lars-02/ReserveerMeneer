@@ -2,7 +2,6 @@
 
 <div class="text-md text-gray-600 mt-2">
     <label for="{{ $id }}" class="font-semibold  uppercase">{{ $slot }}</label>
-    <!--suppress HtmlFormInputWithoutLabel -->
     <input
         id="{{ $id }}"
         name="{{ $id }}"

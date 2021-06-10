@@ -28,16 +28,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('event', EventController::class);
+
 
 Route::group(['prefix' => 'event', 'as' => 'event.'], function () {
-    Route::get('ticket/{event_ticket}', [EventTicketController::class, 'show'])
-        ->name('ticket.show');
+    Route::get('ticket', [EventTicketController::class, 'index'])
+        ->name('ticket.index');
     Route::post('{event}', [EventTicketController::class, 'store'])
         ->name('ticket.store');
     Route::get('{event}/buy', [EventTicketController::class, 'create'])
         ->name('buy');
 });
+
+Route::resource('event', EventController::class);
 
 Auth::routes();
 

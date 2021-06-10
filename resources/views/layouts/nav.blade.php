@@ -42,6 +42,7 @@
                     <a href="#"
                        class="focus:outline-none flex-none font-medium self-center hover:text-purple-500">Hey, {{ Auth::user()->fullname }}</a>
                 </x-slot>
+                <x-dropdown-link href="{{ route('event.ticket.index') }}">My Events</x-dropdown-link>
                 <x-dropdown-link
                     href="{{ route('logout') }}"
                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();"

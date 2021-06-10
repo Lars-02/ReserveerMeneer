@@ -35,7 +35,8 @@ class EventTicketController extends Controller
      */
     public function index()
     {
-        //
+        $tickets = EventTicket::where('user_id', Auth::user()->id)->get();
+        return view('event.ticket.index', compact(['tickets']));
     }
 
     /**

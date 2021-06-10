@@ -14,7 +14,7 @@ class EventPolicy
      * Perform pre-authorization checks.
      *
      * @param User $user
-     * @return void|bool
+     * @return bool
      */
     public function before(User $user)
     {
@@ -26,7 +26,7 @@ class EventPolicy
      * Determine whether the user can view any models.
      *
      * @param User|null $user
-     * @return mixed
+     * @return bool
      */
     public function viewAny(?User $user)
     {
@@ -38,7 +38,7 @@ class EventPolicy
      *
      * @param User $user
      * @param Event $event
-     * @return mixed
+     * @return void
      */
     public function view(User $user, Event $event)
     {
@@ -49,7 +49,7 @@ class EventPolicy
      * Determine whether the user can create models.
      *
      * @param User $user
-     * @return mixed
+     * @return void
      */
     public function create(User $user)
     {
@@ -72,7 +72,7 @@ class EventPolicy
      *
      * @param User $user
      * @param Event $event
-     * @return mixed
+     * @return void
      */
     public function delete(User $user, Event $event)
     {
@@ -84,7 +84,7 @@ class EventPolicy
      *
      * @param User $user
      * @param Event $event
-     * @return mixed
+     * @return void
      */
     public function restore(User $user, Event $event)
     {
@@ -96,7 +96,7 @@ class EventPolicy
      *
      * @param User $user
      * @param Event $event
-     * @return mixed
+     * @return void
      */
     public function forceDelete(User $user, Event $event)
     {

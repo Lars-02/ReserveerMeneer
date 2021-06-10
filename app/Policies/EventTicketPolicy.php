@@ -42,7 +42,7 @@ class EventTicketPolicy
      */
     public function view(User $user, EventTicket $eventTicket)
     {
-        //
+        return $user->id === $eventTicket->user_id;
     }
 
     /**

@@ -152,4 +152,6 @@ return [
 
     'attributes' => [],
 
+
+    'maxtickets' => "You reached the maximum number of tickets for this event"
 ];

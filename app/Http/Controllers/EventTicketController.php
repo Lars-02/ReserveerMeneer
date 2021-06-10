@@ -9,8 +9,8 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Response;
 use Illuminate\Routing\Redirector;
+use Illuminate\Support\Facades\Auth;
 
 class EventTicketController extends Controller
 {
@@ -43,6 +43,7 @@ class EventTicketController extends Controller
      */
     public function create(Event $event)
     {
+        dd(Auth::user()->eventTickets);
         return view('event.ticket.create', compact(['event']));
     }
 
@@ -65,11 +66,11 @@ class EventTicketController extends Controller
      * Display the specified resource.
      *
      * @param EventTicket $eventTicket
-     * @return void
+     * @return string
      */
     public function show(EventTicket $eventTicket)
     {
-        //
+        return 'derp';
     }
 
     /**

@@ -28,7 +28,7 @@ class EventController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return Application|Factory|View|Response
+     * @return Application|Factory|View
      */
     public function index()
     {
@@ -38,7 +38,7 @@ class EventController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return Response
+     * @return void
      */
     public function create()
     {
@@ -49,7 +49,7 @@ class EventController extends Controller
      * Store a newly created resource in storage.
      *
      * @param Request $request
-     * @return Response
+     * @return void
      */
     public function store(Request $request)
     {
@@ -60,7 +60,7 @@ class EventController extends Controller
      * Display the specified resource.
      *
      * @param Event $event
-     * @return Response
+     * @return void
      */
     public function show(Event $event)
     {
@@ -71,7 +71,7 @@ class EventController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param Event $event
-     * @return Response
+     * @return void
      */
     public function edit(Event $event)
     {
@@ -83,7 +83,7 @@ class EventController extends Controller
      *
      * @param Request $request
      * @param Event $event
-     * @return Response
+     * @return void
      */
     public function update(Request $request, Event $event)
     {
@@ -94,7 +94,7 @@ class EventController extends Controller
      * Remove the specified resource from storage.
      *
      * @param Event $event
-     * @return Response
+     * @return void
      */
     public function destroy(Event $event)
     {

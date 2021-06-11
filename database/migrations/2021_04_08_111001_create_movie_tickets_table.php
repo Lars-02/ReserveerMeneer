@@ -14,16 +14,13 @@ class CreateMovieTicketsTable extends Migration
     public function up()
     {
         Schema::create('movie_tickets', function (Blueprint $table) {
+            $table->unique(['movie_slot_id', 'row', 'column']);
             $table->id();
             $table->unsignedBigInteger('movie_slot_id');
             $table->unsignedBigInteger('user_id');
 
             $table->integer('row');
             $table->integer('column');
-
-            $table->string('firstname');
-            $table->string('lastname');
-            $table->date('birthday');
 
             $table->timestamps();
 

@@ -19,8 +19,9 @@ class EventTicketPolicy
      */
     public function before(User $user)
     {
-        if ($user->abilities()->contains('*.*') || $user->abilities()->contains('event_ticket.*'))
+        if ($user->abilities()->contains('*.*'))
             return true;
+        return;
     }
 
     /**

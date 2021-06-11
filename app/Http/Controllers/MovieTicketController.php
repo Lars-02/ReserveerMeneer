@@ -2,8 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\MovieTicketRequest;
+use App\Models\MovieSlot;
 use App\Models\MovieTicket;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Redirector;
 
 class MovieTicketController extends Controller
 {
@@ -20,7 +27,7 @@ class MovieTicketController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return void
      */
     public function index()
     {
@@ -30,29 +37,36 @@ class MovieTicketController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|View
      */
-    public function create()
+    public function create(MovieSlot $movieSlot)
     {
-        //
+        return view('movie.ticket.create', ['movieSlot' => $movieSlot]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @param MovieTicketRequest $request
+     * @param MovieSlot $movieSlot
+     * @return Application|RedirectResponse|Redirector
      */
-    public function store(Request $request)
+    public function store(MovieTicketRequest $request, MovieSlot $movieSlot)
     {
-        //
+        $validated = $request->validated();
+        $tickets = $validated['seats'];
+        unset($validated['seats']);
+        for ($i = 0; $i < $tickets; $i++) {
+            $ticket = MovieTicket::create($validated);
+        }
+        return redirect(route('movie.ticket.index'));
     }
 
     /**
      * Display the specified resource.
      *
-     * @param \App\Models\MovieTicket $movieTicket
-     * @return \Illuminate\Http\Response
+     * @param MovieTicket $movieTicket
+     * @return void
      */
     public function show(MovieTicket $movieTicket)
     {
@@ -62,8 +76,8 @@ class MovieTicketController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param \App\Models\MovieTicket $movieTicket
-     * @return \Illuminate\Http\Response
+     * @param MovieTicket $movieTicket
+     * @return void
      */
     public function edit(MovieTicket $movieTicket)
     {
@@ -73,9 +87,9 @@ class MovieTicketController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param \App\Models\MovieTicket $movieTicket
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param MovieTicket $movieTicket
+     * @return void
      */
     public function update(Request $request, MovieTicket $movieTicket)
     {
@@ -85,8 +99,8 @@ class MovieTicketController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\Models\MovieTicket $movieTicket
-     * @return \Illuminate\Http\Response
+     * @param MovieTicket $movieTicket
+     * @return void
      */
     public function destroy(MovieTicket $movieTicket)
     {

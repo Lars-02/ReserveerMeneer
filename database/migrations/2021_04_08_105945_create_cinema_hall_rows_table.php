@@ -14,8 +14,10 @@ class CreateCinemaHallRowsTable extends Migration
     public function up()
     {
         Schema::create('cinema_hall_rows', function (Blueprint $table) {
+            $table->unique(['cinema_hall_id', 'row']);
             $table->id();
             $table->unsignedBigInteger('cinema_hall_id');
+            $table->integer('row');
             $table->integer('number_of_seats');
 
             $table->foreign('cinema_hall_id')

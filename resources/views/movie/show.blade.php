@@ -21,7 +21,7 @@
                 <p>{{ __('cinema.starting_at', ['date' => $movieSlot->starting_at]) }}</p>
                 @can('create', \App\Models\MovieTicket::class)
                     <div class="flex items-center mt-4">
-                        <a href="{{ route('movie.buy', $movie) }}">
+                        <a href="{{ route('movie.buy', $movieSlot) }}">
                             <x-button>{{ __('general.buy') }}</x-button>
                         </a>
                     </div>

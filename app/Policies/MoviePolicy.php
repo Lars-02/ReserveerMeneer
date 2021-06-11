@@ -14,12 +14,13 @@ class MoviePolicy
      * Perform pre-authorization checks.
      *
      * @param User $user
-     * @return bool
+     * @return bool|void
      */
     public function before(User $user)
     {
         if ($user->abilities()->contains('*.*'))
             return true;
+        return;
     }
 
     /**

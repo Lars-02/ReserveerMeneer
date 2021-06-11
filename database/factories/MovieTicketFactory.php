@@ -28,9 +28,6 @@ class MovieTicketFactory extends Factory
             'user_id' => User::factory(),
             'row' => $this->faker->numberBetween(0 ,10),
             'column' => $this->faker->numberBetween(0 ,5),
-            'firstname' => $this->faker->firstName,
-            'lastname' => $this->faker->lastName,
-            'birthday' => $this->faker->date(),
         ];
     }
 

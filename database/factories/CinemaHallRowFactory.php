@@ -9,6 +9,9 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 
 class CinemaHallRowFactory extends Factory
 {
+
+    private static $row = 1;
+
     /**
      * The name of the factory's corresponding model.
      *
@@ -25,6 +28,7 @@ class CinemaHallRowFactory extends Factory
     {
         return [
             'cinema_hall_id' => CinemaHall::factory(),
+            'row' => self::$row++,
             'number_of_seats' => $this->faker->numberBetween(10, 30),
         ];
     }

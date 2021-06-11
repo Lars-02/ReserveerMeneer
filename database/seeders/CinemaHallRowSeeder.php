@@ -16,9 +16,13 @@ class CinemaHallRowSeeder extends Seeder
     public function run()
     {
         CinemaHall::all()->each(function ($cinemaHall) {
-            $cinemaHall->cinemaHallRows()->saveMany(CinemaHallRow::factory()->count(rand(6, 20))->create([
-                'cinema_hall_id' => $cinemaHall->id,
-            ]));
+            for ($i = rand(6, 20); $i > 0; $i--) {
+                $cinemaHall->cinemaHallRows()->save(CinemaHallRow::factory()->create([
+                    'cinema_hall_id' => $cinemaHall->id,
+                    'row' => $i,
+                ]));
+            }
+
         });
     }
 }

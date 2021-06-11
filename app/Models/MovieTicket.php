@@ -41,4 +41,6 @@ use Illuminate\Support\Carbon;
 class MovieTicket extends Model
 {
     use HasFactory;
+
+    protected $guarded = [];
 }

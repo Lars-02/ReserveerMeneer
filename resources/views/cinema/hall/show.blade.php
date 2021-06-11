@@ -32,7 +32,15 @@
                 <h3><i class="fas fa-video"></i> {{ __('cinema.movie') }}</h3>
                 <p>{{ __('cinema.duration', ['duration' => $movieSlot->movie->duration]) }}</p>
                 <p>{{ __('cinema.minimum_age', ['age' => $movieSlot->movie->minimum_age]) }}</p>
+                @can('create', \App\Models\MovieTicket::class)
+                    <div class="flex items-center mt-4">
+                        <a href="{{ route('movie.buy', $movieSlot) }}">
+                            <x-button>{{ __('general.buy') }}</x-button>
+                        </a>
+                    </div>
+                @endcan
             </div>
+
         @endforeach
     </div>
 @endsection

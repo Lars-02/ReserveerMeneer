@@ -18,6 +18,9 @@
     <div class="flex-none self-center p-2 hover:text-purple-500">
         <a href="{{ route('cinema.index') }}">{{ __('cinema.title') }}</a>
     </div>
+    <div class="flex-none self-center p-2 hover:text-purple-500">
+        <a href="{{ route('movie.index') }}">{{ __('cinema.movies') }}</a>
+    </div>
 
 <!-- Spreader -->
     <div class="flex-auto"></div>

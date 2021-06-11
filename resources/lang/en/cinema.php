@@ -1,7 +1,6 @@
 <?php
 
 return [
-
     'title' => 'Cinemas',
     'cinema' => 'Cinema',
     'location' => 'Location',
@@ -9,8 +8,8 @@ return [
     'hall' => 'Cinema Hall :index',
     'halls' => 'Cinema Halls',
     'halls.number' => 'There are :halls in this cinema',
-    'rows' => 'There are :rows in this hall',
-    'seats' => 'There are :seats in this hall',
+    'rows' => 'There are :rows rows in this hall',
+    'seats' => 'There are :seats seats in this hall',
     'movie' => 'Movie',
     'movies' => 'Movies',
     'movies.number' => 'There are :movies in this hall',

@@ -9,7 +9,6 @@ return [
     'tickets' => 'Tickets',
     'tickets.remaining' => 'There are :remaining tickets remaining, from the :total tickets total',
     'tickets.userMax' => 'A user can buy :max tickets maximum',
-    'buy' => 'Buy',
     'name' => 'Name',
     'start_date' => 'Start Date',
     'end_date' => 'End Date',

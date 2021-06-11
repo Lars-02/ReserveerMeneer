@@ -31,7 +31,7 @@
                 <p>{{ __('cinema.starting_at', ['date' => $movieSlot->starting_at]) }}</p>
                 <h3><i class="fas fa-video"></i> {{ __('cinema.movie') }}</h3>
                 <p>{{ __('cinema.duration', ['duration' => $movieSlot->movie->duration]) }}</p>
-                <p>{{ __('cinema.minimum_age', ['age' => $movieSlot->movie->age]) }}</p>
+                <p>{{ __('cinema.minimum_age', ['age' => $movieSlot->movie->minimum_age]) }}</p>
             </div>
         @endforeach
     </div>

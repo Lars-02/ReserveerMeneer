@@ -32,7 +32,7 @@
                     @endcan
                     @can('create', \App\Models\EventTicket::class)
                         <a href="{{ route('event.buy', $event) }}">
-                            <x-button>{{ __('event.buy') }}</x-button>
+                            <x-button>{{ __('general.buy') }}</x-button>
                         </a>
                     @endcan
                 </div>

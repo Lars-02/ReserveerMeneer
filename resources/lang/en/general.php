@@ -7,4 +7,5 @@ return [
     'destroy' => 'Delete',
     'create' => 'Create :item',
     'show' => 'More Info',
+    'buy' => 'Buy',
 ];

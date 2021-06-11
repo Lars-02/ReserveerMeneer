@@ -5,6 +5,7 @@ use App\Http\Controllers\CinemaHallController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\EventTicketController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MovieSlotController;
 use App\Http\Controllers\TicketController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -49,7 +50,7 @@ Route::group(['prefix' => 'cinema', 'as' => 'cinema'], function () {
         'hall' => 'cinema_hall'
     ], 'except' => 'index']);
     Route::group(['prefix' => 'hall/{cinema_hall}'], function () {
-        Route::resource('movie', CinemaHallController::class, ['parameters' => [
+        Route::resource('movie', MovieSlotController::class, ['parameters' => [
             'hall' => 'cinema_hall'
         ], 'except' => 'index']);
     });

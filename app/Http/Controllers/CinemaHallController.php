@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\CinemaHall;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
@@ -44,7 +47,7 @@ class CinemaHallController extends Controller
      * Display the specified resource.
      *
      * @param CinemaHall $cinemaHall
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|Response
+     * @return Application|Factory|View|Response
      */
     public function show(CinemaHall $cinemaHall)
     {

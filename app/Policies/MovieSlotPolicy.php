@@ -2,6 +2,8 @@
 
 namespace App\Policies;
 
+use App\Models\CinemaHall;
+use App\Models\Movie;
 use App\Models\MovieSlot;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
@@ -13,8 +15,8 @@ class MovieSlotPolicy
     /**
      * Determine whether the user can view any models.
      *
-     * @param  \App\Models\User  $user
-     * @return mixed
+     * @param User $user
+     * @return void
      */
     public function viewAny(User $user)
     {
@@ -24,11 +26,12 @@ class MovieSlotPolicy
     /**
      * Determine whether the user can view the model.
      *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\MovieSlot  $movieSlot
-     * @return mixed
+     * @param User $user
+     * @param CinemaHall $cinemaHall
+     * @param Movie $movie
+     * @return void
      */
-    public function view(User $user, MovieSlot $movieSlot)
+    public function view(User $user, CinemaHall $cinemaHall, Movie $movie)
     {
         //
     }
@@ -36,8 +39,8 @@ class MovieSlotPolicy
     /**
      * Determine whether the user can create models.
      *
-     * @param  \App\Models\User  $user
-     * @return mixed
+     * @param User $user
+     * @return void
      */
     public function create(User $user)
     {
@@ -47,11 +50,12 @@ class MovieSlotPolicy
     /**
      * Determine whether the user can update the model.
      *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\MovieSlot  $movieSlot
-     * @return mixed
+     * @param User $user
+     * @param CinemaHall $cinemaHall
+     * @param Movie $movie
+     * @return void
      */
-    public function update(User $user, MovieSlot $movieSlot)
+    public function update(User $user, CinemaHall $cinemaHall, Movie $movie)
     {
         //
     }
@@ -59,11 +63,12 @@ class MovieSlotPolicy
     /**
      * Determine whether the user can delete the model.
      *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\MovieSlot  $movieSlot
-     * @return mixed
+     * @param User $user
+     * @param CinemaHall $cinemaHall
+     * @param Movie $movie
+     * @return void
      */
-    public function delete(User $user, MovieSlot $movieSlot)
+    public function delete(User $user, CinemaHall $cinemaHall, Movie $movie)
     {
         //
     }
@@ -71,11 +76,12 @@ class MovieSlotPolicy
     /**
      * Determine whether the user can restore the model.
      *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\MovieSlot  $movieSlot
-     * @return mixed
+     * @param User $user
+     * @param CinemaHall $cinemaHall
+     * @param Movie $movie
+     * @return void
      */
-    public function restore(User $user, MovieSlot $movieSlot)
+    public function restore(User $user, CinemaHall $cinemaHall, Movie $movie)
     {
         //
     }
@@ -83,11 +89,12 @@ class MovieSlotPolicy
     /**
      * Determine whether the user can permanently delete the model.
      *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\MovieSlot  $movieSlot
-     * @return mixed
+     * @param User $user
+     * @param CinemaHall $cinemaHall
+     * @param Movie $movie
+     * @return void
      */
-    public function forceDelete(User $user, MovieSlot $movieSlot)
+    public function forceDelete(User $user, CinemaHall $cinemaHall, Movie $movie)
     {
         //
     }

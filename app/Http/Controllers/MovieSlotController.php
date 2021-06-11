@@ -2,25 +2,29 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\MovieSlot;
+use App\Models\CinemaHall;
+use App\Models\Movie;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\Request;
 
 class MovieSlotController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return void
+     * @throws AuthorizationException
      */
     public function index()
     {
-        //
+        $this->authorize('viewAny');
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return void
      */
     public function create()
     {
@@ -30,8 +34,8 @@ class MovieSlotController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return void
      */
     public function store(Request $request)
     {
@@ -41,10 +45,10 @@ class MovieSlotController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\MovieSlot  $movieSlot
-     * @return \Illuminate\Http\Response
+     * @param Movie $movie
+     * @return void
      */
-    public function show(MovieSlot $movieSlot)
+    public function show(Movie $movie)
     {
         //
     }
@@ -52,10 +56,11 @@ class MovieSlotController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\MovieSlot  $movieSlot
-     * @return \Illuminate\Http\Response
+     * @param CinemaHall $cinemaHall
+     * @param Movie $movie
+     * @return void
      */
-    public function edit(MovieSlot $movieSlot)
+    public function edit(CinemaHall $cinemaHall, Movie $movie)
     {
         //
     }
@@ -63,11 +68,12 @@ class MovieSlotController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\MovieSlot  $movieSlot
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param CinemaHall $cinemaHall
+     * @param Movie $movie
+     * @return void
      */
-    public function update(Request $request, MovieSlot $movieSlot)
+    public function update(Request $request,CinemaHall $cinemaHall,  Movie $movie)
     {
         //
     }
@@ -75,10 +81,11 @@ class MovieSlotController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\MovieSlot  $movieSlot
-     * @return \Illuminate\Http\Response
+     * @param CinemaHall $cinemaHall
+     * @param Movie $movie
+     * @return void
      */
-    public function destroy(MovieSlot $movieSlot)
+    public function destroy(CinemaHall $cinemaHall, Movie $movie)
     {
         //
     }

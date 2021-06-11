@@ -9,11 +9,14 @@
     </div>
     @auth()
         <div class="flex-none self-center p-2 hover:text-purple-500">
-            <a href="{{ route('home') }}">Home</a>
+            <a href="{{ route('home') }}">{{ __('general.home') }}</a>
         </div>
     @endauth
     <div class="flex-none self-center p-2 hover:text-purple-500">
-        <a href="{{ route('event.index') }}">Events</a>
+        <a href="{{ route('event.index') }}">{{ __('event.title') }}</a>
+    </div>
+    <div class="flex-none self-center p-2 hover:text-purple-500">
+        <a href="{{ route('cinema.index') }}">{{ __('cinema.title') }}</a>
     </div>
 
 <!-- Spreader -->

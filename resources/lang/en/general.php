@@ -1,8 +1,10 @@
 <?php
 
 return [
+    'home' => 'Home',
     'edit' => 'Edit',
     'submit' => 'Save',
     'destroy' => 'Delete',
-    'create' => 'Create :item'
+    'create' => 'Create :item',
+    'show' => 'More Info',
 ];

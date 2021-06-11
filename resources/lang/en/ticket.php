@@ -16,4 +16,6 @@ return [
     'info' => 'Information',
     'account' => 'Ticket bought by :name',
     'name' => 'Ticket for :name',
+    'picture' => 'Picture',
+    'picture.alt' => 'Your ticket picture',
 ];

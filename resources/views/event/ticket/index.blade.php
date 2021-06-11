@@ -10,6 +10,12 @@
         @foreach($tickets as $event_ticket)
             <div class="h-full bg-white rounded shadow p-4  flex flex-col content-between ">
                 <h2>{{ $event_ticket->event->name }}</h2>
+                <h3><i class="fas fa-camera"></i> {{ __('ticket.picture') }}</h3>
+                <div class="h-40 w-full">
+                    <img src="{{asset('storage/' . $event_ticket->photo_path)}}"
+                         class="select-none md:flex-shrink-0 min-h-full max-h-full mx-auto"
+                         alt="{{ __('ticket.picture.alt') }}">
+                </div>
                 <h3><i class="fas fa-calendar-day"></i> {{ __('ticket.info') }}</h3>
                 <p>{{ __('ticket.account', ['name' => $event_ticket->user->fullname]) }}</p>
                 <p>{{ __('ticket.name', ['name' => $event_ticket->fullname]) }}</p>

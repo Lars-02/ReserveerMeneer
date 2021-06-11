@@ -4,7 +4,6 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Validation\Rule;
 
 class EventRequest extends FormRequest
 {
@@ -19,7 +18,7 @@ class EventRequest extends FormRequest
     {
         $this->merge([
             'country_code' => strtoupper($this->country_code),
-            'house_number' => strtoupper($this->country_code),
+            'house_number' => strtoupper($this->house_number),
         ]);
     }
 
@@ -43,13 +42,7 @@ class EventRequest extends FormRequest
     function rules()
     {
         return [
-            'name' => [
-                'required',
-                'string',
-                'between:2,48',
-                "regex:/^[a-z ,.'-]+$/i",
-//                Rule::unique('events', 'name')->ignore($this->name, 'name'),
-            ],
+            'name' => "required|unique:events,name" . (empty($this->event) ? '' : ',' . $this->event->id) . "|string|between:2,48|regex:/^[a-z ,.'-]+$/i",
             'start_date' => 'required|date|after_or_equal:-3 Years',
             'end_date' => 'required|date|after_or_equal:start_date',
             'city' => "required|string|between:2,24|regex:/^[a-z ,.'-]+$/i",

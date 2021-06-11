@@ -56,7 +56,8 @@ class EventController extends Controller
      */
     public function store(EventRequest $request)
     {
-        return redirect(route('event.edit', ['event' => Event::create($request->validated())]));
+        Event::create($request->validated());
+        return redirect(route('event.index'));
     }
 
     /**

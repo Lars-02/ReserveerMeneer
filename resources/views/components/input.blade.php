@@ -7,7 +7,7 @@
         name="{{ $id }}"
         type="{{ $type }}"
         placeholder="{{ $slot }}..."
-        value="{{ old($id, $value) }}"
+        value="{!! old($id, $value) !!}"
         {{$attributes->class(['select-text text-xs sm:text-sm md:text-base lg:text-lg px-2.5 py-2.5 w-full rounded border-2 border-gray-400 focus:border-gray-400 text-gray-600 focus:ring-0'])}}
     />
     @error($id)

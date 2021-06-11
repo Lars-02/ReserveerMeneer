@@ -64,7 +64,7 @@ class EventPolicy
      */
     public function update(User $user)
     {
-        return $user->abilities()->contains('event.update');
+        return false;
     }
 
     /**

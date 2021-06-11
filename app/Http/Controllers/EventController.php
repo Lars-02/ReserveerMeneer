@@ -9,8 +9,10 @@ use App\Policies\EventPolicy;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Auth;
 
 class EventController extends Controller
@@ -39,7 +41,7 @@ class EventController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return void
+     * @return Application|Factory|View
      */
     public function create()
     {
@@ -49,35 +51,36 @@ class EventController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
-     * @return void
+     * @param EventRequest $request
+     * @return Application|RedirectResponse|Redirector
      */
     public function store(EventRequest $request)
     {
-        //
+        return redirect(route('event.edit', ['event' => Event::create($request->validated())]));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
      * @param Event $event
-     * @return void
+     * @return Application|Factory|View
      */
     public function edit(Event $event)
     {
-        //
+        return view('event.edit', ['event' => $event]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
+     * @param EventRequest $request
      * @param Event $event
-     * @return void
+     * @return Application|RedirectResponse|Redirector
      */
-    public function update(Request $request, Event $event)
+    public function update(EventRequest $request, Event $event)
     {
-        //
+        $event->update($request->validated());
+        return redirect(route('event.index'));
     }
 
     /**

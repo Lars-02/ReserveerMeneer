@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
 
 class EventRequest extends FormRequest
 {
@@ -42,7 +43,13 @@ class EventRequest extends FormRequest
     function rules()
     {
         return [
-            'name' => "required|unique:events,name|string|between:2,24|regex:/^[a-z ,.'-]+$/i",
+            'name' => [
+                'required',
+                'string',
+                'between:2,48',
+                "regex:/^[a-z ,.'-]+$/i",
+//                Rule::unique('events', 'name')->ignore($this->name, 'name'),
+            ],
             'start_date' => 'required|date|after_or_equal:-3 Years',
             'end_date' => 'required|date|after_or_equal:start_date',
             'city' => "required|string|between:2,24|regex:/^[a-z ,.'-]+$/i",

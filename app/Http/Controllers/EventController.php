@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\EventRequest;
 use App\Models\Event;
 use App\Models\User;
 use App\Policies\EventPolicy;
@@ -42,7 +43,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        //
+        return view('event.create');
     }
 
     /**
@@ -51,7 +52,7 @@ class EventController extends Controller
      * @param Request $request
      * @return void
      */
-    public function store(Request $request)
+    public function store(EventRequest $request)
     {
         //
     }

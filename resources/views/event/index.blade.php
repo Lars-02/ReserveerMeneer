@@ -1,7 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1 class="my-6">{{ __('event.title') }}</h1>
+    <div class="flex justify-between">
+        <h1 class="my-6">{{ __('event.title') }}</h1>
+        @can('create', \App\Models\Event::class)
+            <div class="flex items-center">
+                <a href="{{ route('event.create') }}">
+                    <x-button>{{ __('general.create', ['item' => 'Event']) }}</x-button>
+                </a>
+            </div>
+        @endcan
+    </div>
     <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
         @foreach($events as $event)
             <div class="h-full bg-white rounded shadow p-4  flex flex-col content-between ">

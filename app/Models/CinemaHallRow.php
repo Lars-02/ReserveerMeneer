@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $id
  * @property int $cinema_hall_id
  * @property int $number_of_seats
+ * @property int $row
  * @property-read CinemaHall $cinemaHall
  * @method static CinemaHallRowFactory factory(...$parameters)
  * @method static Builder|CinemaHallRow newModelQuery()
@@ -31,5 +32,32 @@ class CinemaHallRow extends Model
 
     public function cinemaHall() {
         return $this->belongsTo(CinemaHall::class);
+    }
+
+    public function movieSlot() {
+        return $this->hasOneThrough(MovieSlot::class, CinemaHall::class);
+    }
+
+    /**
+     * @param MovieSlot $movieSlot
+     * @param int $row
+     * @return false|int|mixed
+     */
+    public function emptySeat(MovieSlot $movieSlot) {
+        $takenSeat = MovieTicket::where('movie_slot_id', $movieSlot->id)->where('row', $this->row)->max('column');
+        $emptyColumn = $takenSeat + rand(1, 3);
+        if ($emptyColumn < $this->number_of_seats)
+            return $emptyColumn;
+        return false;
+    }
+
+    public function isEmptySeat(MovieSlot $movieSlot, int $column) {
+        $rowMovieTickets = MovieTicket::where('movie_slot_id', $movieSlot->id)->where('row', $this->row)->pluck('column');
+        $rowMovieTickets = $rowMovieTickets->map(function ($item) {
+            return [$item + 2, $item +1, $item, $item - 1, $item -2];
+        })->flatten()->unique();
+        return $rowMovieTickets->every(function ($value) use ($column) {
+            return $value != $column;
+        });
     }
 }

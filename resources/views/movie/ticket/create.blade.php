@@ -23,7 +23,11 @@
                         <div>{{ $cinemaHallRow->row }}</div>
                         <div class="flex flex-row mx-auto gap-2">
                             @for($seat = 1; $seat <= $cinemaHallRow->number_of_seats; $seat++)
-                                <div class="rounded shadow bg-gray-800 text-white text-sm text-center w-6">{{ $seat }}</div>
+                                @if($cinemaHallRow->isEmptySeat($movieSlot, $seat))
+                                    <div class="rounded shadow bg-gray-800 text-white text-sm text-center w-6">{{ $seat }}</div>
+                                @else
+                                    <div class="rounded shadow bg-red-600 text-white text-sm text-center w-6">{{ $seat }}</div>
+                                @endif
                             @endfor
                         </div>
                     </div>

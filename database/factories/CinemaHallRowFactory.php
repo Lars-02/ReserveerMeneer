@@ -29,7 +29,7 @@ class CinemaHallRowFactory extends Factory
         return [
             'cinema_hall_id' => CinemaHall::factory(),
             'row' => self::$row++,
-            'number_of_seats' => $this->faker->numberBetween(10, 30),
+            'number_of_seats' => $this->faker->numberBetween(6, 24),
         ];
     }
 }

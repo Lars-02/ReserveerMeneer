@@ -15,7 +15,7 @@ class CinemaSeeder extends Seeder
     public function run()
     {
         Cinema::factory()
-            ->count(20)
+            ->count(16)
             ->create();
     }
 }

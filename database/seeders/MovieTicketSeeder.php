@@ -23,15 +23,22 @@ class MovieTicketSeeder extends Seeder
         $users = User::all();
 
         $users->each(function ($user) use ($movieSlots, $users) {
-            $movieSlots->random(rand(1, 3))->each(function ($movieSlot) use ($user, $users) {
-                $row =  rand(0, $movieSlot->cinemaHall->totalRows() - 1);
-                MovieTicket::factory()->count(rand(1, floor($movieSlot->cinemaHall->totalSeats() / $users->count())))->create([
-                        'movie_slot_id' => $movieSlot,
-                        'user_id' => $user,
-                        'row' => $row,
-                        'column' => rand(0, $movieSlot->cinemaHall->cinemaHallRows->offsetGet($row)->number_of_seats - 1),
-                    ]
-                );
+            $movieSlots->random(rand(1, 6))->each(function ($movieSlot) use ($user, $users) {
+                for ($i = rand(1, $movieSlot->cinemaHall->totalRows()); $i > 0; $i--) {
+                    $row = rand(1, $movieSlot->cinemaHall->totalRows());
+                    for ($i = rand(1, floor($movieSlot->cinemaHall->cinemaHallRows->firstWhere('row', $row)->number_of_seats /2)); $i > 0; $i--) {
+                        $seat = $movieSlot->cinemaHall->cinemaHallRows->firstWhere('row', $row)->emptySeat($movieSlot);
+                        if (!$seat)
+                            continue;
+                        MovieTicket::factory()->create([
+                                'movie_slot_id' => $movieSlot,
+                                'user_id' => $user,
+                                'row' => $row,
+                                'column' => $seat,
+                            ]
+                        );
+                    }
+                }
             });
         });
     }

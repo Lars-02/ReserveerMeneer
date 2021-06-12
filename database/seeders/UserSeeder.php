@@ -33,7 +33,7 @@ class UserSeeder extends Seeder
                 'email' => 'maikka39@gmail.com']);
 
         User::factory()
-            ->count(18)
+            ->count(97)
             ->create();
     }
 }

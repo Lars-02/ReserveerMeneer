@@ -52,4 +52,8 @@ class CinemaHall extends Model
     {
         return $this->cinemaHallRows()->count();
     }
+
+    public function cinemaHallRow(int $row) {
+        return CinemaHallRow::where('row', $row);
+    }
 }

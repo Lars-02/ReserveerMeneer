@@ -52,6 +52,7 @@
                 </x-slot>
                 <x-dropdown-link href="{{ route('event.ticket.index') }}">{{ __('event.my.tickets') }}</x-dropdown-link>
                 <x-dropdown-link href="{{ route('movie.ticket.index') }}">{{ __('cinema.my.tickets') }}</x-dropdown-link>
+                <x-dropdown-link href="{{ route('restaurant.reservation.index') }}">{{ __('reservation.my.title') }}</x-dropdown-link>
                 <x-dropdown-link
                     href="{{ route('logout') }}"
                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();"

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\MovieTicketRequest;
 use App\Models\MovieSlot;
 use App\Models\MovieTicket;
+use App\Models\User;
 use Auth;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -30,7 +31,7 @@ class MovieTicketController extends Controller
      *
      * @return Application|Factory|View
      */
-    public function index()
+    public function index(User $user = null)
     {
         if (empty($user))
             $user = Auth::user();
@@ -105,6 +106,7 @@ class MovieTicketController extends Controller
      */
     public function destroy(MovieTicket $movieTicket)
     {
-        //
+        $movieTicket->delete();
+        return redirect()->back();
     }
 }

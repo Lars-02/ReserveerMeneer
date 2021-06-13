@@ -18,7 +18,7 @@ class CreateReservationsTable extends Migration
             $table->unsignedBigInteger('restaurant_id');
             $table->unsignedBigInteger('user_id');
 
-            $table->time('time_slot');
+            $table->dateTime('time');
             $table->integer('number_of_guests');
             $table->boolean('queued');
             $table->timestamps();

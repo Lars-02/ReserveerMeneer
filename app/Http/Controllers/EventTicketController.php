@@ -38,8 +38,7 @@ class EventTicketController extends Controller
     {
         if(empty($user))
             $user = Auth::user();
-        $tickets = EventTicket::where('user_id', $user->id)->get();
-        return view('event.ticket.index', compact(['tickets']));
+        return view('event.ticket.index', ['tickets' => EventTicket::where('user_id', $user->id)->get()]);
     }
 
     /**

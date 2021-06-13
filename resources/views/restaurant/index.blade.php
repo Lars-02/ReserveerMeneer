@@ -35,9 +35,9 @@
                                 <x-button>{{ __('general.edit') }}</x-button>
                             </a>
                         @endcan
-                        @can('view', $restaurant)
-                            <a href="{{ route('restaurant.show', $restaurant) }}">
-                                <x-button>{{ __('general.show') }}</x-button>
+                        @can('create', \App\Models\EventTicket::class)
+                            <a href="{{ route('restaurant.reserve', $restaurant) }}">
+                                <x-button>{{ __('general.buy') }}</x-button>
                             </a>
                         @endcan
                     </div>

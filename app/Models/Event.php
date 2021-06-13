@@ -60,8 +60,6 @@ class Event extends Model
         'streetname',
         'house_number',
         'country_code',
-        'total_tickets',
-        'max_user_tickets',
     ];
 
     protected $guarded = [];

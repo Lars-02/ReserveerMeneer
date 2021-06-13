@@ -8,6 +8,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\MovieSlotController;
 use App\Http\Controllers\MovieTicketController;
+use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\RestaurantController;
 use App\Http\Controllers\TicketController;
 use Illuminate\Support\Facades\Auth;
@@ -34,6 +35,17 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 
+
+Route::group(['prefix' => 'restaurant', 'as' => 'restaurant.'], function () {
+    Route::get('reservation/{user?}', [ReservationController::class, 'index'])
+        ->name('reservation.index');
+    Route::post('{restaurant}', [ReservationController::class, 'store'])
+        ->name('reservation.store');
+    Route::delete('reservation/{reservation}', [ReservationController::class, 'destroy'])
+        ->name('reservation.destroy');
+    Route::get('{restaurant}/reserve', [ReservationController::class, 'create'])
+        ->name('reserve');
+});
 
 Route::group(['prefix' => 'event', 'as' => 'event.'], function () {
     Route::get('ticket/{user?}', [EventTicketController::class, 'index'])

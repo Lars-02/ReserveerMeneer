@@ -53,11 +53,9 @@ class MovieTicketController extends Controller
      */
     public function store(MovieTicketRequest $request, MovieSlot $movieSlot)
     {
-        $validated = $request->validated();
-        $tickets = $validated['seats'];
-        unset($validated['seats']);
-        for ($i = 0; $i < $tickets; $i++) {
-            $ticket = MovieTicket::create($validated);
+        for ($seat = $request->get('column'); $seat < $request->get('column') + $request->get('seats'); $seat++) {
+            MovieTicket::create(array_merge($request->all('user_id', 'movie_slot_id',
+                'row'), ['column' => $seat]));
         }
         return redirect(route('movie.ticket.index'));
     }

@@ -35,7 +35,7 @@
             </div>
             <form action="{{ route('movie.ticket.store', $movieSlot) }}" method="POST">
                 @csrf
-                @error('total_tickets')
+                @error('empty_seat')
                 <p class="text-red-600">{{ $message }}</p>
                 @enderror
                 <div class="select-none grid gap-1 sm:gap-2 md:gap-4 grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 my-6">

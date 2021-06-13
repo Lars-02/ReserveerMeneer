@@ -153,5 +153,6 @@ return [
     'attributes' => [],
 
 
-    'max_tickets' => "You reached the maximum number of tickets for this event"
+    'max_tickets' => "You reached the maximum number of tickets for this event",
+    'full_seat' => "The chosen seat is taken",
 ];

@@ -149,4 +149,7 @@ return [
 
     'attributes' => [],
 
+    'max_tickets' => "Je hebt het maximale aantal tickets bereikt voor dit event.",
+    'full_seat' => "De gekozen stoel is bezet.",
+
 ];

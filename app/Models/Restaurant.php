@@ -5,9 +5,11 @@ namespace App\Models;
 use Database\Factories\RestaurantFactory;
 use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Carbon;
 
 /**
@@ -40,9 +42,9 @@ use Illuminate\Support\Carbon;
  * @method static Builder|Restaurant whereStreetname($value)
  * @method static Builder|Restaurant whereUpdatedAt($value)
  * @mixin Eloquent
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\OpeningHours[] $openingHours
+ * @property-read Collection|\App\Models\OpeningHours[] $openingHours
  * @property-read int|null $opening_hours_count
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Reservation[] $reservations
+ * @property-read Collection|\App\Models\Reservation[] $reservations
  * @property-read int|null $reservations_count
  * @property-read \App\Models\RestaurantType $restaurantType
  */
@@ -50,24 +52,28 @@ class Restaurant extends Model
 {
     use HasFactory;
 
-    public function restaurantType() : BelongsTo
+    protected $guarded = [];
+
+    public function restaurantType(): BelongsTo
     {
         return $this->belongsTo(RestaurantType::class);
     }
 
-    public function openingHours(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function openingHours(): HasMany
     {
         return $this->hasMany(OpeningHours::class);
     }
 
-    public function reservations(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function reservations(): HasMany
     {
         return $this->hasMany(Reservation::class);
     }
 
-    public function reservationCount(string $dateTime) : int {
-        return $this->reservations->where(function () {
-
-        });
+    public function reservationCount(string $dateTime): int
+    {
+        return $this->reservations->filter(
+            function ($item) use ($dateTime) {
+                return $item->time === date("Y-m-d H:i:s", strtotime($dateTime));
+            })->count();
     }
 }

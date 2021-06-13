@@ -11,6 +11,8 @@ use Auth;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Routing\Redirector;
 
 class ReservationController extends Controller
 {
@@ -50,12 +52,12 @@ class ReservationController extends Controller
      * Store a newly created resource in storage.
      *
      * @param ReservationRequest $request
-     * @return void
+     * @return Application|RedirectResponse|Redirector
      */
     public function store(ReservationRequest $request, Restaurant $restaurant)
     {
-        EventTicket::create($request->all(['restaurant_id', 'user_id', 'time', 'number_of_guests', 'queued']));
-        return redirect(route('event.ticket.index'));
+        Reservation::create($request->all(['restaurant_id', 'user_id', 'time', 'number_of_guests', 'queued']));
+        return redirect(route('restaurant.reservation.index'));
     }
 
     /**
@@ -96,7 +98,7 @@ class ReservationController extends Controller
      * Remove the specified resource from storage.
      *
      * @param Reservation $reservation
-     * @return void
+     * @return RedirectResponse
      */
     public function destroy(Reservation $reservation)
     {

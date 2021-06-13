@@ -2,9 +2,11 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Restaurant;
 use App\Rules\IsAfterNow;
 use App\Rules\IsTimeSlot;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class ReservationRequest extends FormRequest
 {
@@ -17,7 +19,13 @@ class ReservationRequest extends FormRequest
      */
     protected function prepareForValidation()
     {
+        /** @var Restaurant $restaurant */
+        $restaurant = $this->route('restaurant');
         $this->merge([
+            'time' => date("Y-m-d H:i:s", strtotime($this->time)),
+            'user_id' => Auth::user()->id,
+            'restaurant_id' => $restaurant->id,
+            'queued' => $restaurant->seats - $restaurant->reservationCount($this->time) < $this->number_of_guests,
         ]);
     }
 
@@ -38,12 +46,14 @@ class ReservationRequest extends FormRequest
      */
     public function rules()
     {
+        /** @var Restaurant $restaurant */
+        $restaurant = $this->route('restaurant');
         return [
-            'restaurant_id' => 'required',
-            'user_id' => 'required',
-            'time' => ['required', new IsTimeSlot(), new IsAfterNow,],
-            'queued' => 'required',
-            'number_of_guests' => 'required|between:1,' . $this->route('restaurant')->reservationCount($this->time),
+            'user_id' => 'required|numeric|exists:users,id',
+            'restaurant_id' => 'required|numeric|exists:restaurants,id',
+            'time' => ['required', 'date', 'date_format:Y-m-d H:i:s', new IsTimeSlot(), new IsAfterNow,],
+            'queued' => 'required|bool',
+            'number_of_guests' => 'required|numeric|min:1',
         ];
     }
 }

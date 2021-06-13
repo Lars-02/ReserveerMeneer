@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Restaurant;
 use App\Models\RestaurantType;
+use DateTime;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class RestaurantFactory extends Factory

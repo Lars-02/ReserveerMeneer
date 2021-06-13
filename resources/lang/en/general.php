@@ -8,8 +8,8 @@ return [
     'create' => 'Create :item',
     'show' => 'More Info',
     'buy' => 'Buy',
-    'firstname' => 'Firstname',
-    'lastname' => 'Lastname',
+    'firstname' => 'First name',
+    'lastname' => 'Last name',
     'birthday' => 'Birthday',
     'birthday.date' => 'Birthday is on :date',
 ];

@@ -26,7 +26,7 @@ class MovieTicketSeeder extends Seeder
             $movieSlots->random(rand(1, 6))->each(function ($movieSlot) use ($user, $users) {
                 for ($i = rand(1, $movieSlot->cinemaHall->totalRows()); $i > 0; $i--) {
                     $row = rand(1, $movieSlot->cinemaHall->totalRows());
-                    for ($i = rand(1, floor($movieSlot->cinemaHall->cinemaHallRows->firstWhere('row', $row)->number_of_seats /2)); $i > 0; $i--) {
+                    for ($i = rand(1, min(6, $movieSlot->cinemaHall->cinemaHallRows->firstWhere('row', $row)->number_of_seats)); $i > 0; $i--) {
                         $seat = $movieSlot->cinemaHall->cinemaHallRows->firstWhere('row', $row)->emptySeat($movieSlot);
                         if (!$seat)
                             continue;

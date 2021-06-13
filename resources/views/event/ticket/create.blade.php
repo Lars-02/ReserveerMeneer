@@ -21,9 +21,9 @@
             @enderror
             <div class="select-none grid gap-1 sm:gap-2 md:gap-4 grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 my-6">
 
-                <x-input type="text" id="firstname">{{ __('ticket.firstname') }}</x-input>
-                <x-input type="text" id="lastname">{{ __('ticket.lastname') }}</x-input>
-                <x-input type="date" id="birthday">{{ __('ticket.birthday') }}</x-input>
+                <x-input type="text" id="firstname">{{ __('general.firstname') }}</x-input>
+                <x-input type="text" id="lastname">{{ __('general.lastname') }}</x-input>
+                <x-input type="date" id="birthday">{{ __('general.birthday') }}</x-input>
 
                 <div class="flex self-center">
                     <input class="mt-4 p-2 bg-purple-500 rounded text-sm text-white font-medium" name="photo_path"

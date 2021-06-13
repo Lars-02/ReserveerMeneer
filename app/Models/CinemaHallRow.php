@@ -45,7 +45,7 @@ class CinemaHallRow extends Model
      */
     public function emptySeat(MovieSlot $movieSlot) {
         $takenSeat = MovieTicket::where('movie_slot_id', $movieSlot->id)->where('row', $this->row)->max('column');
-        $emptyColumn = $takenSeat + rand(1, 3);
+        $emptyColumn = $takenSeat + rand(1, 6);
         if ($emptyColumn < $this->number_of_seats)
             return $emptyColumn;
         return false;

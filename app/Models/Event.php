@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Http\Encryptable;
 use Database\Factories\EventFactory;
 use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
@@ -48,9 +49,20 @@ use Illuminate\Support\Carbon;
  * @method static Builder|Event whereUpdatedAt($value)
  * @mixin Eloquent
  */
+
 class Event extends Model
 {
-    use HasFactory;
+    use HasFactory, Encryptable;
+
+    protected $encryptable = [
+        'name',
+        'city',
+        'streetname',
+        'house_number',
+        'country_code',
+        'total_tickets',
+        'max_user_tickets',
+    ];
 
     protected $guarded = [];
 

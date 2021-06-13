@@ -14,7 +14,6 @@
     @foreach($types as $type => $restaurants)
         <h2>{{ $type }}</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-
             @foreach($restaurants as $restaurant)
                 <div class="h-full bg-white rounded shadow p-4  flex flex-col content-between ">
                     <h3>{{ $restaurant->name }}</h3>

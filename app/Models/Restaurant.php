@@ -7,6 +7,7 @@ use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Carbon;
 
 /**
@@ -43,4 +44,13 @@ use Illuminate\Support\Carbon;
 class Restaurant extends Model
 {
     use HasFactory;
+
+    public function restaurantType() : BelongsTo
+    {
+        return $this->belongsTo(RestaurantType::class);
+    }
+
+    public function openingHours() {
+        return $this->hasMany(OpeningHours::class);
+    }
 }

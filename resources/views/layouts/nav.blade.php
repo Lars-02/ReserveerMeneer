@@ -21,6 +21,9 @@
     <div class="flex-none self-center p-2 hover:text-purple-500">
         <a href="{{ route('movie.index') }}">{{ __('cinema.movies') }}</a>
     </div>
+    <div class="flex-none self-center p-2 hover:text-purple-500">
+        <a href="{{ route('restaurant.index') }}">{{ __('restaurant.title') }}</a>
+    </div>
 
 <!-- Spreader -->
     <div class="flex-auto"></div>
@@ -35,17 +38,17 @@
 
     @guest()
         <div class="flex-none self-center p-2 hover:text-blue-700">
-            <a href="{{ route('login') }}">Login</a>
+            <a href="{{ route('login') }}">{{ __('general.login') }}</a>
         </div>
         <div class="flex-none self-center p-2 hover:text-blue-700">
-            <a href="{{ route('register') }}">Register</a>
+            <a href="{{ route('register') }}">{{ __('general.register') }}</a>
         </div>
     @else
         <div class="flex-none self-center p-2 hover:text-blue-700">
             <x-dropdown alignment="right">
                 <x-slot name="trigger">
                     <a href="#"
-                       class="focus:outline-none flex-none font-medium self-center hover:text-purple-500">Hey, {{ Auth::user()->fullname }}</a>
+                       class="focus:outline-none flex-none font-medium self-center hover:text-purple-500">{{ __('general.hey') . Auth::user()->fullname }}</a>
                 </x-slot>
                 <x-dropdown-link href="{{ route('event.ticket.index') }}">{{ __('event.my.tickets') }}</x-dropdown-link>
                 <x-dropdown-link href="{{ route('movie.ticket.index') }}">{{ __('cinema.my.tickets') }}</x-dropdown-link>

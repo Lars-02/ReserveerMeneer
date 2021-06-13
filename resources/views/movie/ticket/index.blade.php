@@ -15,8 +15,8 @@
                 <h3><i class="fas fa-chair"></i> {{ __('cinema.seat') }}</h3>
                 <p>{{__('cinema.my.hall', ['hall' => $movie_ticket->movieSlot->cinemaHall->id])}}</p>
                 <p>{{__('ticket.seat', ['row' => $movie_ticket->row, 'seat' => $movie_ticket->column])}}</p>
-                <h3><i class="fas fa-city"></i> {{ __('cinema.location') }}</h3>
-                <p>{{ __('cinema.location.city', ['city' => $movie_ticket->movieSlot->cinemaHall->cinema->city]) }}</p>
+                <h3><i class="fas fa-city"></i> {{ __('general.location') }}</h3>
+                <p>{{ __('general.location.city', ['city' => $movie_ticket->movieSlot->cinemaHall->cinema->city]) }}</p>
                 <p>{{ $movie_ticket->movieSlot->cinemaHall->cinema->house_number . ' ' . $movie_ticket->movieSlot->cinemaHall->cinema->streetname}}</p>
                 <p>{{ $movie_ticket->movieSlot->cinemaHall->cinema->city . ', ' . $movie_ticket->movieSlot->cinemaHall->cinema->country_code }}</p>
                 <h3><i class="fas fa-calendar-day"></i> {{ __('cinema.time') }}</h3>

@@ -5,8 +5,6 @@ return [
     'my.tickets' => 'My Movies',
     'my.hall' => 'Your Hall is :hall',
     'cinema' => 'Cinema',
-    'location' => 'Location',
-    'location.city' => 'This cinema is in :city',
     'hall' => 'Cinema Hall :index',
     'halls' => 'Cinema Halls',
     'halls.number' => 'There are :halls in this cinema',

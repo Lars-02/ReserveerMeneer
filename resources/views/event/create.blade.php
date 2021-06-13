@@ -14,10 +14,10 @@
                 <x-input type="number" id="total_tickets">{{ __('event.total_tickets') }}</x-input>
                 <x-input type="number" id="max_user_tickets">{{ __('event.max_user_tickets') }}</x-input>
 
-                <x-input type="text" id="city">{{ __('event.city') }}</x-input>
-                <x-input type="text" id="streetname">{{ __('event.street_name') }}</x-input>
-                <x-input type="text" id="house_number">{{ __('event.house_number') }}</x-input>
-                <x-input type="text" id="country_code">{{ __('event.country_code') }}</x-input>
+                <x-input type="text" id="city">{{ __('general.city') }}</x-input>
+                <x-input type="text" id="streetname">{{ __('general.street_name') }}</x-input>
+                <x-input type="text" id="house_number">{{ __('general.house_number') }}</x-input>
+                <x-input type="text" id="country_code">{{ __('general.country_code') }}</x-input>
 
             </div>
             <x-button type="submit">{{ __('general.submit') }}</x-button>

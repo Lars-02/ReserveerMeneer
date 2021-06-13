@@ -13,8 +13,8 @@
     </div>
     <div class="h-full bg-white rounded shadow p-4  flex flex-col content-between ">
         <h2>{{ $cinema->name }}</h2>
-        <h3><i class="fas fa-city"></i> {{ __('cinema.location') }}</h3>
-        <p>{{ __('cinema.location.city', ['city' => $cinema->city]) }}</p>
+        <h3><i class="fas fa-city"></i> {{ __('general.location') }}</h3>
+        <p>{{ __('general.location.city', ['city' => $cinema->city]) }}</p>
         <p>{{ $cinema->house_number . ' ' . $cinema->streetname}}</p>
         <p>{{ $cinema->city . ', ' . $cinema->country_code }}</p>
     </div>

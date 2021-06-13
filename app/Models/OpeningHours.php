@@ -35,4 +35,9 @@ use Illuminate\Support\Carbon;
 class OpeningHours extends Model
 {
     use HasFactory;
+
+    public function dowMap(int $day) {
+        $dowMap = array('mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun');
+        return __('general.' . $dowMap[$day]);
+    }
 }

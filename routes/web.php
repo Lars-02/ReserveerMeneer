@@ -8,6 +8,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\MovieSlotController;
 use App\Http\Controllers\MovieTicketController;
+use App\Http\Controllers\RestaurantController;
 use App\Http\Controllers\TicketController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -30,8 +31,8 @@ Route::get('/locale/{locale}', function ($locale) {
 })->name('locale');
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('home');
+})->name('home');
 
 
 Route::group(['prefix' => 'event', 'as' => 'event.'], function () {
@@ -60,6 +61,8 @@ Route::resource('movie', MovieController::class);
 
 Route::resource('cinema', CinemaController::class);
 
+Route::resource('restaurant', RestaurantController::class);
+
 Route::group(['prefix' => 'cinema', 'as' => 'cinema'], function () {
     Route::resource('hall', CinemaHallController::class, ['parameters' => [
         'hall' => 'cinema_hall'
@@ -77,5 +80,3 @@ Route::resource('event', EventController::class)
     ->except('show');
 
 Auth::routes();
-
-Route::get('/home', [HomeController::class, 'index'])->name('home');

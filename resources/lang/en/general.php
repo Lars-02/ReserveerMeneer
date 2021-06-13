@@ -1,6 +1,9 @@
 <?php
 
 return [
+    'hey' => 'Hey, ',
+    'login' => 'Login',
+    'register' => 'Register',
     'home' => 'Home',
     'edit' => 'Edit',
     'submit' => 'Save',
@@ -12,4 +15,17 @@ return [
     'lastname' => 'Last name',
     'birthday' => 'Birthday',
     'birthday.date' => 'Birthday is on :date',
+    'location' => 'Location',
+    'location.city' => 'Located in :city',
+    'city' => 'City',
+    'street_name' => 'Street name',
+    'house_number' => 'House number',
+    'country_code' => 'Country Code',
+    'mon' => 'Monday',
+    'tue' => 'Tuesday',
+    'wed' => 'Wednesday',
+    'thu' => 'Thursday',
+    'fri' => 'Friday',
+    'sat' => 'Saturday',
+    'sun' => 'Sunday',
 ];

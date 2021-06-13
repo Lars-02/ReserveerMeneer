@@ -6,8 +6,8 @@
             <h2>{{ $event->name }}</h2>
             <h3><i class="fas fa-calendar-day"></i> {{ __('event.date') }}</h3>
             <p>{{ __('event.dates', ['startDate' => date('d-m-Y', strtotime($event->start_date)), 'endDate' => date('d-m-Y', strtotime($event->end_date))]) }}</p>
-            <h3><i class="fas fa-city"></i> {{ __('event.location') }}</h3>
-            <p>{{ __('event.location.city', ['city' => $event->city]) }}</p>
+            <h3><i class="fas fa-city"></i> {{ __('general.location') }}</h3>
+            <p>{{ __('general.location.city', ['city' => $event->city]) }}</p>
             <p>{{ $event->house_number . ' ' . $event->streetname}}</p>
             <p>{{ $event->city . ', ' . $event->country_code }}</p>
             <h3><i class="fas fa-city"></i> {{ __('event.tickets') }}</h3>

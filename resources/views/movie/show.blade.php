@@ -13,8 +13,8 @@
                 <h2>{{ $movieSlot->cinemaHall->cinema->name }}</h2>
                 <p>{{ __('cinema.rows', ['rows' => $movieSlot->cinemaHall->totalRows()]) }}</p>
                 <p>{{ __('cinema.seats', ['seats' => $movieSlot->cinemaHall->totalSeats()]) }}</p>
-                <h3><i class="fas fa-city"></i> {{ __('cinema.location') }}</h3>
-                <p>{{ __('cinema.location.city', ['city' => $movieSlot->cinemaHall->cinema->city]) }}</p>
+                <h3><i class="fas fa-city"></i> {{ __('general.location') }}</h3>
+                <p>{{ __('general.location.city', ['city' => $movieSlot->cinemaHall->cinema->city]) }}</p>
                 <p>{{ $movieSlot->cinemaHall->cinema->house_number . ' ' . $movieSlot->cinemaHall->cinema->streetname}}</p>
                 <p>{{ $movieSlot->cinemaHall->cinema->city . ', ' . $movieSlot->cinemaHall->cinema->country_code }}</p>
                 <h3><i class="fas fa-calendar-day"></i> {{ __('cinema.time') }}</h3>

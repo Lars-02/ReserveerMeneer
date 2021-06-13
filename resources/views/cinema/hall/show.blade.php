@@ -15,8 +15,8 @@
         <h2>{{ $cinema_hall->cinema->name }}</h2>
         <p>{{ __('cinema.rows', ['rows' => $cinema_hall->totalRows()]) }}</p>
         <p>{{ __('cinema.seats', ['seats' => $cinema_hall->totalSeats()]) }}</p>
-        <h3><i class="fas fa-city"></i> {{ __('cinema.location') }}</h3>
-        <p>{{ __('cinema.location.city', ['city' => $cinema_hall->cinema->city]) }}</p>
+        <h3><i class="fas fa-city"></i> {{ __('general.location') }}</h3>
+        <p>{{ __('general.location.city', ['city' => $cinema_hall->cinema->city]) }}</p>
         <p>{{ $cinema_hall->cinema->house_number . ' ' . $cinema_hall->cinema->streetname}}</p>
         <p>{{ $cinema_hall->cinema->city . ', ' . $cinema_hall->cinema->country_code }}</p>
         <h3><i class="fas fa-video"></i> {{ __('cinema.movies') }}</h3>

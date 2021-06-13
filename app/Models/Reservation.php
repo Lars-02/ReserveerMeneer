@@ -33,6 +33,10 @@ use Illuminate\Support\Carbon;
  * @method static Builder|Reservation whereUpdatedAt($value)
  * @method static Builder|Reservation whereUserId($value)
  * @mixin Eloquent
+ * @property string $time
+ * @property-read \App\Models\Restaurant $restaurant
+ * @property-read \App\Models\User $user
+ * @method static Builder|Reservation whereTime($value)
  */
 class Reservation extends Model
 {

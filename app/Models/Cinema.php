@@ -37,6 +37,8 @@ use Illuminate\Support\Carbon;
  * @method static Builder|Cinema whereStreetname($value)
  * @method static Builder|Cinema whereUpdatedAt($value)
  * @mixin Eloquent
+ * @property-read Collection|\App\Models\MovieSlot[] $movieSlots
+ * @property-read int|null $movie_slots_count
  */
 class Cinema extends Model
 {

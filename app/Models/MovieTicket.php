@@ -37,6 +37,8 @@ use Illuminate\Support\Carbon;
  * @method static Builder|MovieTicket whereUpdatedAt($value)
  * @method static Builder|MovieTicket whereUserId($value)
  * @mixin Eloquent
+ * @property-read \App\Models\MovieSlot $movieSlot
+ * @property-read \App\Models\User $user
  */
 class MovieTicket extends Model
 {

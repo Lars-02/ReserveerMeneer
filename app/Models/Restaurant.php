@@ -40,6 +40,11 @@ use Illuminate\Support\Carbon;
  * @method static Builder|Restaurant whereStreetname($value)
  * @method static Builder|Restaurant whereUpdatedAt($value)
  * @mixin Eloquent
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\OpeningHours[] $openingHours
+ * @property-read int|null $opening_hours_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Reservation[] $reservations
+ * @property-read int|null $reservations_count
+ * @property-read \App\Models\RestaurantType $restaurantType
  */
 class Restaurant extends Model
 {

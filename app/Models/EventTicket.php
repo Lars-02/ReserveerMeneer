@@ -40,6 +40,9 @@ use Illuminate\Support\Carbon;
  * @method static Builder|EventTicket whereUpdatedAt($value)
  * @method static Builder|EventTicket whereUserId($value)
  * @mixin Eloquent
+ * @property-read \App\Models\Event $event
+ * @property-read mixed $full_name
+ * @property-read \App\Models\User $user
  */
 class EventTicket extends Model
 {

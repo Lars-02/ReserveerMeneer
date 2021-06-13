@@ -50,7 +50,19 @@ class Restaurant extends Model
         return $this->belongsTo(RestaurantType::class);
     }
 
-    public function openingHours() {
+    public function openingHours(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
         return $this->hasMany(OpeningHours::class);
+    }
+
+    public function reservations(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Reservation::class);
+    }
+
+    public function reservationCount(string $dateTime) : int {
+        return $this->reservations->where(function () {
+
+        });
     }
 }

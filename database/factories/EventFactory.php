@@ -29,7 +29,7 @@ class EventFactory extends Factory
             'house_number' => $this->faker->numberBetween(1, 300),
             'city' => $this->faker->city,
             'country_code' => $this->faker->countryCode,
-            'total_tickets' => $this->faker->numberBetween(100, 10000),
+            'total_tickets' => $this->faker->numberBetween(200, 800),
             'max_user_tickets' => $this->faker->numberBetween(2, 8),
         ];
     }

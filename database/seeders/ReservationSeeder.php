@@ -16,7 +16,7 @@ class ReservationSeeder extends Seeder
     public function run()
     {
         User::all()->each(function ($user) {
-            Reservation::factory()->count(rand(1, 4))->create(['user_id' => $user]);
+            Reservation::factory()->count(rand(1, 5))->create(['user_id' => $user]);
         });
     }
 }

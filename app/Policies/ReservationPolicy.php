@@ -26,10 +26,10 @@ class ReservationPolicy
     /**
      * Determine whether the user can view any models.
      *
-     * @param  \App\Models\User  $user
-     * @return mixed
+     * @param User $user
+     * @return bool
      */
-    public function viewAny(User $user)
+    public function viewAny(User $user): bool
     {
         if (empty(request()->route('user')))
             return true;
@@ -39,9 +39,9 @@ class ReservationPolicy
     /**
      * Determine whether the user can view the model.
      *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\Reservation  $reservation
-     * @return mixed
+     * @param User $user
+     * @param Reservation $reservation
+     * @return void
      */
     public function view(User $user, Reservation $reservation)
     {
@@ -51,10 +51,10 @@ class ReservationPolicy
     /**
      * Determine whether the user can create models.
      *
-     * @param  \App\Models\User  $user
-     * @return mixed
+     * @param User $user
+     * @return bool
      */
-    public function create(User $user)
+    public function create(User $user): bool
     {
         return true;
     }
@@ -62,9 +62,9 @@ class ReservationPolicy
     /**
      * Determine whether the user can update the model.
      *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\Reservation  $reservation
-     * @return mixed
+     * @param User $user
+     * @param Reservation $reservation
+     * @return void
      */
     public function update(User $user, Reservation $reservation)
     {
@@ -74,11 +74,11 @@ class ReservationPolicy
     /**
      * Determine whether the user can delete the model.
      *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\Reservation  $reservation
-     * @return mixed
+     * @param User $user
+     * @param Reservation $reservation
+     * @return bool
      */
-    public function delete(User $user, Reservation $reservation)
+    public function delete(User $user, Reservation $reservation): bool
     {
         return $user->id === $eventTicket->user_id;
     }
@@ -86,9 +86,9 @@ class ReservationPolicy
     /**
      * Determine whether the user can restore the model.
      *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\Reservation  $reservation
-     * @return mixed
+     * @param User $user
+     * @param Reservation $reservation
+     * @return void
      */
     public function restore(User $user, Reservation $reservation)
     {
@@ -98,9 +98,9 @@ class ReservationPolicy
     /**
      * Determine whether the user can permanently delete the model.
      *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\Reservation  $reservation
-     * @return mixed
+     * @param User $user
+     * @param Reservation $reservation
+     * @return void
      */
     public function forceDelete(User $user, Reservation $reservation)
     {

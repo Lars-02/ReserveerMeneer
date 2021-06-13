@@ -2,6 +2,8 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\IsAfterNow;
+use App\Rules\IsTimeSlot;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ReservationRequest extends FormRequest
@@ -15,7 +17,6 @@ class ReservationRequest extends FormRequest
      */
     protected function prepareForValidation()
     {
-        dd($this->time, $this->time->format('i') % 30);
         $this->merge([
         ]);
     }
@@ -40,9 +41,9 @@ class ReservationRequest extends FormRequest
         return [
             'restaurant_id' => 'required',
             'user_id' => 'required',
-            'time' => 'required',
+            'time' => ['required', new IsTimeSlot(), new IsAfterNow,],
             'queued' => 'required',
-            'number_of_guests' => 'required',
+            'number_of_guests' => 'required|between:1,' . $this->route('restaurant')->reservationCount($this->time),
         ];
     }
 }

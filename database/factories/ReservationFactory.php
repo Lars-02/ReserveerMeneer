@@ -26,8 +26,8 @@ class ReservationFactory extends Factory
         return [
             'restaurant_id' => Restaurant::all()->random(),
             'user_id' => User::all()->random(),
-            'time' => $this->faker->dateTime(),
-            'number_of_guests' => $this->faker->numberBetween(1, 8),
+            'time' => $this->faker->dateTimeBetween('-2 days', '+1 day'),
+            'number_of_guests' => $this->faker->numberBetween(1, 12),
             'queued' => $this->faker->boolean(20),
         ];
     }

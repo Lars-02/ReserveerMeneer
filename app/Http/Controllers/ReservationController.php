@@ -52,7 +52,7 @@ class ReservationController extends Controller
      * @param ReservationRequest $request
      * @return void
      */
-    public function store(ReservationRequest $request)
+    public function store(ReservationRequest $request, Restaurant $restaurant)
     {
         EventTicket::create($request->all(['restaurant_id', 'user_id', 'time', 'number_of_guests', 'queued']));
         return redirect(route('event.ticket.index'));

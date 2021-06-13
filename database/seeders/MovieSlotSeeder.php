@@ -19,7 +19,7 @@ class MovieSlotSeeder extends Seeder
         $movies = Movie::all();
 
         CinemaHall::all()->each(function ($cinemaHall) use ($movies) {
-            $movies->random(rand(0, 3))->each(function ($movie) use ($cinemaHall) {
+            $movies->random(rand(3, 10))->each(function ($movie) use ($cinemaHall) {
                 MovieSlot::factory()->create([
                         'cinema_hall_id' => $cinemaHall,
                         'movie_id' => $movie,

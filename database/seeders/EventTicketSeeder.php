@@ -19,8 +19,8 @@ class EventTicketSeeder extends Seeder
         $events = Event::all();
 
         User::all()->each(function ($user) use ($events) {
-            $events->random(rand(1, 6))->each(function ($event) use ($user) {
-                EventTicket::factory()->count(rand(1, $event->max_user_tickets))->create([
+            $events->random(rand(1, 4))->each(function ($event) use ($user) {
+                EventTicket::factory()->count(min(rand(1, $event->max_user_tickets), $event->remainingTickets))->create([
                         'event_id' => $event,
                         'user_id' => $user,
                     ]

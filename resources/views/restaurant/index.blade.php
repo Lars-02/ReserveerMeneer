@@ -36,7 +36,7 @@
                             </a>
                         @endcan
                         @can('create', \App\Models\Reservation::class)
-                            <a href="{{ route('restaurant.reservation.store', $restaurant) }}">
+                            <a href="{{ route('restaurant.reserve', $restaurant) }}">
                                 <x-button>{{ __('general.buy') }}</x-button>
                             </a>
                         @endcan

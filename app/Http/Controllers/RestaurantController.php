@@ -46,7 +46,7 @@ class RestaurantController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param Request $request
      * @return void
      */
     public function store(Request $request)
@@ -57,7 +57,7 @@ class RestaurantController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Restaurant  $restaurant
+     * @param Restaurant $restaurant
      * @return void
      */
     public function show(Restaurant $restaurant)
@@ -68,7 +68,7 @@ class RestaurantController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Restaurant  $restaurant
+     * @param Restaurant $restaurant
      * @return void
      */
     public function edit(Restaurant $restaurant)
@@ -79,8 +79,8 @@ class RestaurantController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Restaurant  $restaurant
+     * @param Request $request
+     * @param Restaurant $restaurant
      * @return void
      */
     public function update(Request $request, Restaurant $restaurant)
@@ -91,7 +91,7 @@ class RestaurantController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Restaurant  $restaurant
+     * @param Restaurant $restaurant
      * @return void
      */
     public function destroy(Restaurant $restaurant)

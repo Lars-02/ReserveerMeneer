@@ -16,7 +16,7 @@ class CinemaHallSeeder extends Seeder
     public function run()
     {
         Cinema::all()->each(function ($cinema) {
-            $cinema->cinemaHalls()->saveMany(CinemaHall::factory()->count(rand(3, 6))->create([
+            $cinema->cinemaHalls()->saveMany(CinemaHall::factory()->count(rand(3, 8))->create([
                 'cinema_id' => $cinema,
             ]));
         });

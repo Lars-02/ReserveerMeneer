@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ReservationRequest;
+use App\Models\EventTicket;
 use App\Models\Reservation;
 use App\Models\Restaurant;
 use App\Models\User;
@@ -9,7 +11,6 @@ use Auth;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
-use Illuminate\Http\Request;
 
 class ReservationController extends Controller
 {
@@ -42,24 +43,25 @@ class ReservationController extends Controller
      */
     public function create(Restaurant $restaurant)
     {
-        return view('event.ticket.create', ['restaurant' => $restaurant]);
+        return view('restaurant.reservation.create', ['restaurant' => $restaurant]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param ReservationRequest $request
      * @return void
      */
-    public function store(Request $request)
+    public function store(ReservationRequest $request)
     {
-        //
+        EventTicket::create($request->all(['restaurant_id', 'user_id', 'time', 'number_of_guests', 'queued']));
+        return redirect(route('event.ticket.index'));
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Reservation  $reservation
+     * @param Reservation $reservation
      * @return void
      */
     public function show(Reservation $reservation)
@@ -70,7 +72,7 @@ class ReservationController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Reservation  $reservation
+     * @param Reservation $reservation
      * @return void
      */
     public function edit(Reservation $reservation)
@@ -81,11 +83,11 @@ class ReservationController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Reservation  $reservation
+     * @param ReservationRequest $request
+     * @param Reservation $reservation
      * @return void
      */
-    public function update(Request $request, Reservation $reservation)
+    public function update(ReservationRequest $request, Reservation $reservation)
     {
         //
     }
@@ -93,7 +95,7 @@ class ReservationController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Reservation  $reservation
+     * @param Reservation $reservation
      * @return void
      */
     public function destroy(Reservation $reservation)

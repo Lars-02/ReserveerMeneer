@@ -82,30 +82,47 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function roles() {
+    protected $fillable = [
+        'firstname',
+        'lastname',
+        'birthday',
+        'city',
+        'streetname',
+        'house_number',
+        'country_code',
+        'email',
+        'password',
+    ];
+
+    public function roles()
+    {
         return $this->belongsToMany(Role::class)->withTimestamps();
     }
 
-    public function assignRole($role) {
+    public function assignRole($role)
+    {
         $this->roles()->save($role);
     }
 
-    public function abilities() : Collection {
+    public function abilities(): Collection
+    {
         return $this->roles->map(function ($item) {
             return $item->abilities->pluck('name');
         })->flatten();
     }
 
-    public function events() {
+    public function events()
+    {
         return $this->belongsToMany(Event::class, 'event_tickets')->using(EventTicket::class);
     }
 
-    public function eventTickets() {
+    public function eventTickets()
+    {
         return $this->hasMany(EventTicket::class);
     }
 
     public function getFullNameAttribute()
     {
-        return $this->firstname.' '.$this->lastname;
+        return $this->firstname . ' ' . $this->lastname;
     }
 }

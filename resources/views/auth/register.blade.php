@@ -36,6 +36,16 @@
                     >Lastname
                     </x-input>
                     <x-input
+                        type="date"
+                        id="birthday">
+                        required
+                        {{ __('general.birthday') }}
+                    </x-input>
+                    <x-input type="text" id="city">{{ __('general.city') }}</x-input>
+                    <x-input type="text" id="streetname">{{ __('general.street_name') }}</x-input>
+                    <x-input type="text" id="house_number">{{ __('general.house_number') }}</x-input>
+                    <x-input type="text" id="country_code">{{ __('general.country_code') }}</x-input>
+                    <x-input
                         type="password"
                         id="password"
                         autocomplete="new-password"

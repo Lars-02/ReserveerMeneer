@@ -64,7 +64,7 @@ class EventTicketController extends Controller
         $validated = $request->validated();
         $validated['photo_path'] = $validated['photo_path']->store('photos');
         unset($validated['total_tickets']);
-        $ticket = EventTicket::create($validated);
+        EventTicket::create($validated);
         return redirect(route('event.ticket.index'));
     }
 

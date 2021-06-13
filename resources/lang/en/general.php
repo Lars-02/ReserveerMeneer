@@ -28,4 +28,10 @@ return [
     'fri' => 'Friday',
     'sat' => 'Saturday',
     'sun' => 'Sunday',
+    'filters' => 'Filters',
+    'sort.name' => 'Sort on name',
+    'sort.location' => 'Sort on location',
+    'search' => 'Search',
+    'search.from' => 'Search from',
+    'search.until' => 'Search until',
 ];

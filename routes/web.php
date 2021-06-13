@@ -31,9 +31,8 @@ Route::get('/locale/{locale}', function ($locale) {
     return redirect()->back();
 })->name('locale');
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+Route::get('/', [HomeController::class, 'index'])
+    ->name('home');
 
 
 Route::group(['prefix' => 'restaurant', 'as' => 'restaurant.'], function () {

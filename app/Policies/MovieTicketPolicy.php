@@ -80,7 +80,7 @@ class MovieTicketPolicy
      */
     public function delete(User $user, MovieTicket $movieTicket)
     {
-        //
+        return $user->id === $movieTicket->user_id;
     }
 
     /**

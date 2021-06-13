@@ -2,7 +2,7 @@
 
 @section('content')
     @empty(request()->route('user'))
-        <h1 class="my-6">{{ __('ticket.my_title') }}</h1>
+        <h1 class="my-6">{{ __('ticket.event.title') }}</h1>
     @else
         <h1 class="my-6">{{ __('ticket.title', ['name' => request()->route('user')->fullname]) }}</h1>
     @endempty

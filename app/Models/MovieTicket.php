@@ -43,4 +43,12 @@ class MovieTicket extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    public function movieSlot() {
+        return $this->belongsTo(MovieSlot::class);
+    }
+
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
 }

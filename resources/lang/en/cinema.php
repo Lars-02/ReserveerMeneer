@@ -2,6 +2,8 @@
 
 return [
     'title' => 'Cinemas',
+    'my.tickets' => 'My Movies',
+    'my.hall' => 'Your Hall is :hall',
     'cinema' => 'Cinema',
     'location' => 'Location',
     'location.city' => 'This cinema is in :city',
@@ -18,4 +20,5 @@ return [
     'minimum_age' => 'You need to be at least :age years old',
     'time' => 'Time',
     'starting_at' => 'Starting at :date',
+    'seat' => 'Your seat',
 ];

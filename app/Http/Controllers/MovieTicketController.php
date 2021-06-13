@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\MovieTicketRequest;
 use App\Models\MovieSlot;
 use App\Models\MovieTicket;
+use Auth;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -27,11 +28,13 @@ class MovieTicketController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return void
+     * @return Application|Factory|View
      */
     public function index()
     {
-        //
+        if (empty($user))
+            $user = Auth::user();
+        return view('movie.ticket.index', ['tickets' => MovieTicket::where('user_id', $user->id)->get()]);
     }
 
     /**

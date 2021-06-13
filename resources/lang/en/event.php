@@ -2,6 +2,7 @@
 
 return [
     'title' => 'Events',
+    'my.tickets' => 'My Events',
     'date' => 'Date',
     'dates' => 'From :startDate until :endDate',
     'location' => 'Location',

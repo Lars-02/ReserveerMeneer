@@ -40,7 +40,6 @@
         <div class="flex-none self-center p-2 hover:text-blue-700">
             <a href="{{ route('register') }}">Register</a>
         </div>
-
     @else
         <div class="flex-none self-center p-2 hover:text-blue-700">
             <x-dropdown alignment="right">
@@ -48,7 +47,8 @@
                     <a href="#"
                        class="focus:outline-none flex-none font-medium self-center hover:text-purple-500">Hey, {{ Auth::user()->fullname }}</a>
                 </x-slot>
-                <x-dropdown-link href="{{ route('event.ticket.index') }}">My Events</x-dropdown-link>
+                <x-dropdown-link href="{{ route('event.ticket.index') }}">{{ __('event.my.tickets') }}</x-dropdown-link>
+                <x-dropdown-link href="{{ route('movie.ticket.index') }}">{{ __('cinema.my.tickets') }}</x-dropdown-link>
                 <x-dropdown-link
                     href="{{ route('logout') }}"
                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();"

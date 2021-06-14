@@ -6,6 +6,8 @@ use App\Http\Requests\EventTicketRequest;
 use App\Models\Event;
 use App\Models\EventTicket;
 use App\Models\User;
+use Exception;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -69,54 +71,29 @@ class EventTicketController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param EventTicket $eventTicket
-     * @return string
-     */
-    public function show(EventTicket $eventTicket)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param EventTicket $eventTicket
-     * @return void
-     */
-    public function edit(EventTicket $eventTicket)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param EventTicketRequest $request
-     * @param EventTicket $eventTicket
-     * @return void
-     */
-    public function update(EventTicketRequest $request, EventTicket $eventTicket)
-    {
-        //
-    }
-
-    /**
      * Remove the specified resource from storage.
      *
      * @param EventTicket $eventTicket
-     * @return void
+     * @return RedirectResponse
+     * @throws Exception
      */
-    public function destroy(EventTicket $eventTicket)
+    public function destroy(EventTicket $eventTicket): RedirectResponse
     {
         $eventTicket->delete();
         return redirect()->back();
     }
 
-    public function downloadJSON(): BinaryFileResponse
+    /**
+     * @throws AuthorizationException
+     */
+    public function downloadJSON(User $user = null): BinaryFileResponse
     {
-        $tickets = EventTicket::where('user_id', Auth::user()->id)->get(['id', 'event_id', 'user_id', 'start_at', 'end_at', 'firstname', 'lastname', 'birthday']);
+        $this->authorize('download', EventTicket::class);
+
+        if(empty($user))
+            $user = Auth::user();
+
+        $tickets = EventTicket::where('user_id', $user->id)->get(['id', 'event_id', 'user_id', 'start_at', 'end_at', 'firstname', 'lastname', 'birthday']);
         $filename = "tickets.json";
         $handle = fopen($filename, 'w+');
         fputs($handle, $tickets->toJson(JSON_PRETTY_PRINT));
@@ -126,10 +103,17 @@ class EventTicketController extends Controller
     }
 
     /**
+     * @param User|null $user
      * @return StreamedResponse
+     * @throws AuthorizationException
      */
-    public function downloadCSV(): StreamedResponse
+    public function downloadCSV(User $user = null): StreamedResponse
     {
+        $this->authorize('download', EventTicket::class);
+
+        if(empty($user))
+            $user = Auth::user();
+
         $headers = array(
             "Content-type" => "text/csv",
             "Content-Disposition" => "attachment; filename=tickets.csv",
@@ -138,7 +122,7 @@ class EventTicketController extends Controller
             "Expires" => "0"
         );
 
-        $tickets = EventTicket::where('user_id', Auth::user()->id)->get();
+        $tickets = EventTicket::where('user_id', $user->id)->get();
         $columns = array('Ticket ID', 'Event ID', 'User ID', 'Start at', 'Ends at', 'Firstname', 'Lastname', 'Birthday');
 
         $callback = function() use ($tickets, $columns)

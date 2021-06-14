@@ -20,6 +20,8 @@ class ReservationRequest extends FormRequest
     protected function prepareForValidation()
     {
         /** @var Restaurant $restaurant */
+        if (empty($this->time))
+            return;
         $restaurant = $this->route('restaurant');
         $this->merge([
             'time' => date("Y-m-d H:i:s", strtotime($this->time)),
@@ -53,7 +55,7 @@ class ReservationRequest extends FormRequest
             'restaurant_id' => 'required|numeric|exists:restaurants,id',
             'time' => ['required', 'date', 'date_format:Y-m-d H:i:s', new IsTimeSlot(), new IsAfterNow,],
             'queued' => 'required|bool',
-            'number_of_guests' => 'required|numeric|min:1',
+            'number_of_guests' => 'required|numeric|between:1,' . $restaurant->seats,
         ];
     }
 }

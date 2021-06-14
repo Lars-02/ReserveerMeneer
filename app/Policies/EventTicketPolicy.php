@@ -107,4 +107,10 @@ class EventTicketPolicy
     {
         //
     }
+
+    public function download(User $user) {
+        if (empty(request()->route('user')))
+            return true;
+        return $user->id === request()->route('user')->id;
+    }
 }

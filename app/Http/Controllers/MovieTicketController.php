@@ -68,11 +68,11 @@ class MovieTicketController extends Controller
      * Display the specified resource.
      *
      * @param MovieTicket $movieTicket
-     * @return void
+     * @return Application|Factory|View
      */
     public function show(MovieTicket $movieTicket)
     {
-        //
+        return view('movie.ticket.show', ['movieTicket' => $movieTicket]);
     }
 
     /**
@@ -102,7 +102,7 @@ class MovieTicketController extends Controller
      * Remove the specified resource from storage.
      *
      * @param MovieTicket $movieTicket
-     * @return void
+     * @return RedirectResponse|void
      */
     public function destroy(MovieTicket $movieTicket)
     {

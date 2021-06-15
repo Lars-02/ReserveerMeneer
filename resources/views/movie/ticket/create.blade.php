@@ -8,7 +8,7 @@
             <p>{{ __('cinema.seats', ['seats' => $movieSlot->cinemaHall->totalSeats()]) }}</p>
             <h3><i class="fas fa-video"></i> {{ __('cinema.movie') }}</h3>
             <p>{{ __('cinema.duration', ['duration' => $movieSlot->movie->duration]) }}</p>
-            <p>{{ __('cinema.minimum_age', ['age' => $movieSlot->movie->age]) }}</p>
+            <p>{{ __('cinema.minimum_age', ['age' => $movieSlot->movie->minimum_age]) }}</p>
             <h3><i class="fas fa-calendar-day"></i> {{ __('cinema.time') }}</h3>
             <p>{{ __('cinema.starting_at', ['date' => $movieSlot->start]) }}</p>
             <h3><i class="fas fa-city"></i> {{ __('general.location') }}</h3>
@@ -36,6 +36,9 @@
             <form action="{{ route('movie.ticket.store', $movieSlot) }}" method="POST">
                 @csrf
                 @error('empty_seat')
+                <p class="text-red-600">{{ $message }}</p>
+                @enderror
+                @error('age')
                 <p class="text-red-600">{{ $message }}</p>
                 @enderror
                 <div class="select-none grid gap-1 sm:gap-2 md:gap-4 grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 my-6">

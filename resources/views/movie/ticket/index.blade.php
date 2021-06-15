@@ -24,6 +24,11 @@
                     <p>{{ __('cinema.starting_at', ['date' => $movie_ticket->movieSlot->start]) }}</p>
                 </div>
                 <div class="flex flex-row flex-grow items-end justify-between mt-4">
+                    @can('view', $movie_ticket)
+                        <a href="{{ route('movie.ticket.show', $movie_ticket) }}">
+                            <x-button>{{ __('general.show') }}</x-button>
+                        </a>
+                    @endcan
                     @can('delete', $movie_ticket)
                         <form action="{{ route('movie.ticket.destroy', $movie_ticket) }}" method="POST">
                             @csrf

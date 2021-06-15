@@ -29,6 +29,7 @@ class MovieTicketRequest extends FormRequest
             'user_id' => Auth::user()->id,
             'movie_slot_id' => $this->route('movie_slot')->id,
             'empty_seat' => ['movie_slot' => $this->route('movie_slot'), 'row' =>  $this->row, 'column' => $this->column, 'seats' => $this->seats],
+            'age' => Auth::user()->birthday,
         ]);
     }
 
@@ -47,6 +48,7 @@ class MovieTicketRequest extends FormRequest
             'row' => 'required|numeric|between:1,' . $this->route('movie_slot')->cinemaHall->totalRows(),
             'column' => 'required|numeric|between:1,' . $cinemaHallRow->number_of_seats,
             'seats' => 'required|numeric|between:1,' . ($cinemaHallRow->number_of_seats - $this->column + 1),
+            'age' => 'required|date|before_or_equal:-' . $this->route('movie_slot')->movie->minimum_age . ' Years'
         ];
     }
 }

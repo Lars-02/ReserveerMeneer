@@ -69,6 +69,8 @@ Route::group(['prefix' => 'movie', 'as' => 'movie.'], function () {
         ->name('ticket.destroy');
     Route::get('{movie_slot}/buy', [MovieTicketController::class, 'create'])
         ->name('buy');
+    Route::get('ticket/{movie_ticket}/info', [MovieTicketController::class, 'show'])
+        ->name('ticket.show');
 });
 
 Route::resource('movie', MovieController::class);

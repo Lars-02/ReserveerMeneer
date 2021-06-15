@@ -23,16 +23,21 @@ class HomeController extends Controller
             $items = $items->sortBy(function ($item) use ($request) {
                 return $item[$request->get('sort')];
             });
-        if (!empty($request->get('search'))) {
-            $filters = explode(",", str_replace(", ", ",", $request['search']));
-            $items = $items->filter(function ($item) use ($filters) {
-                foreach ($filters as $filter) {
-                    if (stripos($item->name, $filter) !== false)
-                        return true;
-                }
-            });
-        }
 
-        return view('home', ['items' => $items]);
+        $search = empty($request->get('search')) ? '' : $request->get('search');
+        $filters = explode(",", str_replace(", ", ",", $request['search']));
+        $items = $items->filter(function ($item) use ($filters) {
+            foreach ($filters as $filter) {
+                if (stripos($item->name, $filter) !== false)
+                    return true;
+                if (stripos($item->city, $filter) !== false)
+                    return true;
+                if (stripos($item->city, $filter) !== false)
+                    return true;
+            }
+            return false;
+        });
+
+        return view('home', ['items' => $items, 'search' => $search]);
     }
 }

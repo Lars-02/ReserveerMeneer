@@ -34,7 +34,7 @@ class EventTicketController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return void
+     * @return Application|Factory|View
      */
     public function index(User $user = null)
     {

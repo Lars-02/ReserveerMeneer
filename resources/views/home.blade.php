@@ -10,7 +10,7 @@
             <form action="{{ route('home') }}" class="flex flex-col gap-4">
                 <x-button type="submit" name="sort" value="name">{{ __('general.sort.name') }}</x-button>
                 <x-button type="submit" name="sort" value="city">{{ __('general.sort.location') }}</x-button>
-                <x-input type="text" id="search">{{ __('general.search') }}</x-input>
+                <x-input type="text" id="search" value="{{ $search }}">{{ __('general.search') }}</x-input>
                 <x-input type="date" id="from">{{ __('general.search.from') }}</x-input>
                 <x-input type="date" id="until">{{ __('general.search.until') }}</x-input>
                 <x-button type="submit">{{ __('general.search') }}</x-button>

@@ -10,9 +10,10 @@
             <form action="{{ route('home') }}" class="flex flex-col gap-4">
                 <x-button type="submit" name="sort" value="name">{{ __('general.sort.name') }}</x-button>
                 <x-button type="submit" name="sort" value="city">{{ __('general.sort.location') }}</x-button>
+                <x-button type="submit" name="sort" value="start">{{ __('general.sort.date') }}</x-button>
                 <x-input type="text" id="search" value="{{ $search }}">{{ __('general.search') }}</x-input>
-                <x-input type="date" id="from">{{ __('general.search.from') }}</x-input>
-                <x-input type="date" id="until">{{ __('general.search.until') }}</x-input>
+                <x-input type="date" id="from" value="{{ $from }}">{{ __('general.search.from') }}</x-input>
+                <x-input type="date" id="until" value="{{ $until }}">{{ __('general.search.until') }}</x-input>
                 <x-button type="submit">{{ __('general.search') }}</x-button>
             </form>
         </div>
@@ -23,7 +24,7 @@
                         <div class="bg-gray-500 w-full text-xl text-white text-center font-bold rounded-lg">Event</div>
                         <h2>{{ $item->name }}</h2>
                         <h3><i class="fas fa-calendar-day"></i> {{ __('event.date') }}</h3>
-                        <p>{{ __('event.dates', ['startDate' => $item->start_date, 'endDate' => $item->end_date]) }}</p>
+                        <p>{{ __('event.dates', ['startDate' => $item->start, 'endDate' => $item->end]) }}</p>
                         <h3><i class="fas fa-city"></i> {{ __('general.location') }}</h3>
                         <p>{{ __('general.location.city', ['city' => $item->city]) }}</p>
                         <p>{{ $item->house_number . ' ' . $item->streetname}}</p>
@@ -51,7 +52,7 @@
                         <p>{{ $item->cinemaHall->cinema->house_number . ' ' . $item->cinemaHall->cinema->streetname}}</p>
                         <p>{{ $item->cinemaHall->cinema->city . ', ' . $item->cinemaHall->cinema->country_code }}</p>
                         <h3><i class="fas fa-calendar-day"></i> {{ __('cinema.time') }}</h3>
-                        <p>{{ __('cinema.starting_at', ['date' => $item->starting_at]) }}</p>
+                        <p>{{ __('cinema.starting_at', ['date' => $item->start]) }}</p>
                         <h3><i class="fas fa-video"></i> {{ __('cinema.movie') }}</h3>
                         <p>{{ __('cinema.duration', ['duration' => $item->movie->duration]) }}</p>
                         <p>{{ __('cinema.minimum_age', ['age' => $item->movie->minimum_age]) }}</p>

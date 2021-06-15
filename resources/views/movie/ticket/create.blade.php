@@ -10,7 +10,7 @@
             <p>{{ __('cinema.duration', ['duration' => $movieSlot->movie->duration]) }}</p>
             <p>{{ __('cinema.minimum_age', ['age' => $movieSlot->movie->age]) }}</p>
             <h3><i class="fas fa-calendar-day"></i> {{ __('cinema.time') }}</h3>
-            <p>{{ __('cinema.starting_at', ['date' => $movieSlot->starting_at]) }}</p>
+            <p>{{ __('cinema.starting_at', ['date' => $movieSlot->start]) }}</p>
             <h3><i class="fas fa-city"></i> {{ __('general.location') }}</h3>
             <p>{{ __('general.location.city', ['city' => $movieSlot->cinemaHall->cinema->city]) }}</p>
             <p>{{ $movieSlot->cinemaHall->cinema->house_number . ' ' . $movieSlot->cinemaHall->cinema->streetname}}</p>

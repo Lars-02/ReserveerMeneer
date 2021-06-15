@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
+use App\Models\Movie;
 use App\Models\MovieSlot;
 use App\Models\Pagination;
 use Illuminate\Contracts\Support\Renderable;
@@ -38,15 +39,25 @@ class HomeController extends Controller
             });
         }
 
-        $items =  Pagination::paginate($items, 20, $request->get('page'));
+        $from = null;
+        $until = null;
+        if (!empty($request->get('from')) && !empty($request->get('until'))) {
+            $from = $request->get('from');
+            $until = $request->get('until');
+
+            $items = $items->whereBetween('start', [$from, $until]);
+        }
+
         if (!empty($request->get('sort')))
             $items = $items->sortBy(function ($item) use ($request) {
-                if (get_class($item) == Event::class)
-                    return $item[$request->get('sort')];
-                return $item->movie[$request->get('sort')];
+                if (get_class($item) == MovieSlot::class && $request->get('sort') == 'name')
+                    return $item->movie[$request->get('sort')];
+                return $item[$request->get('sort')];
             });
 
-        return view('home', ['items' => $items, 'search' => $search]);
+        $items = Pagination::paginate($items, 20, $request->get('page'));
+
+        return view('home', ['items' => $items, 'search' => $search, 'from' => $from, 'until' => $until]);
     }
 
 

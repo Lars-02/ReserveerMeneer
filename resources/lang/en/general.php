@@ -31,6 +31,7 @@ return [
     'filters' => 'Filters',
     'sort.name' => 'Sort on name',
     'sort.location' => 'Sort on location',
+    'sort.date' => 'Sort on date',
     'search' => 'Search',
     'search.from' => 'Search from',
     'search.until' => 'Search until',

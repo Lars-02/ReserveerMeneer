@@ -26,8 +26,8 @@ class EventTicketFactory extends Factory
         return [
             'event_id' => Event::factory(),
             'user_id' => User::factory(),
-            'start_at' => $this->faker->date(),
-            'end_at' => $this->faker->date(),
+            'start' => $this->faker->date(),
+            'end' => $this->faker->date(),
             'firstname' => $this->faker->firstName,
             'lastname' => $this->faker->lastName,
             'birthday' => $this->faker->date(),

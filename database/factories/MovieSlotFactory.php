@@ -26,7 +26,7 @@ class MovieSlotFactory extends Factory
         return [
             'cinema_hall_id' => CinemaHall::factory(),
             'movie_id' => Movie::factory(),
-            'starting_at' => $this->faker->unique()->dateTimeBetween('-1 weeks', '+1 weeks'),
+            'start' => $this->faker->unique()->dateTimeBetween('-1 weeks', '+1 weeks'),
         ];
     }
 }

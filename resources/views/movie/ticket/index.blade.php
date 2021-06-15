@@ -20,7 +20,7 @@
                 <p>{{ $movie_ticket->movieSlot->cinemaHall->cinema->house_number . ' ' . $movie_ticket->movieSlot->cinemaHall->cinema->streetname}}</p>
                 <p>{{ $movie_ticket->movieSlot->cinemaHall->cinema->city . ', ' . $movie_ticket->movieSlot->cinemaHall->cinema->country_code }}</p>
                 <h3><i class="fas fa-calendar-day"></i> {{ __('cinema.time') }}</h3>
-                <p>{{ __('cinema.starting_at', ['date' => $movie_ticket->movieSlot->starting_at]) }}</p>
+                <p>{{ __('cinema.starting_at', ['date' => $movie_ticket->movieSlot->start]) }}</p>
                 <div class="flex justify-between mt-4">
                     @can('delete', $movie_ticket)
                         <form action="{{ route('movie.ticket.destroy', $movie_ticket) }}" method="POST">

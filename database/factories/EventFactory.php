@@ -23,8 +23,8 @@ class EventFactory extends Factory
     {
         return [
             'name' => $this->faker->company,
-            'start_date' => $this->faker->dateTimeBetween('-1 weeks'),
-            'end_date' => $this->faker->dateTimeBetween('now', '+1 weeks'),
+            'start' => $this->faker->dateTimeBetween('-1 weeks'),
+            'end' => $this->faker->dateTimeBetween('now', '+1 weeks'),
             'streetname' => $this->faker->streetName,
             'house_number' => $this->faker->numberBetween(1, 300),
             'city' => $this->faker->city,

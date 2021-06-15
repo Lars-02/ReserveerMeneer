@@ -43,8 +43,8 @@ class EventRequest extends FormRequest
     {
         return [
             'name' => "required|unique:events,name" . (empty($this->event) ? '' : ',' . $this->event->id) . "|string|between:2,48|regex:/^[a-z ,.'-]+$/i",
-            'start_date' => 'required|date|after_or_equal:-3 Years',
-            'end_date' => 'required|date|after_or_equal:start_date',
+            'start' => 'required|date|after_or_equal:-3 Years',
+            'end' => 'required|date|after_or_equal:start_date',
             'city' => "required|string|between:2,24|regex:/^[a-z ,.'-]+$/i",
             'streetname' => "required|string|between:2,24|regex:/^[a-z ,.'-]+$/i",
             'house_number' => "required|alpha_num|between:1,10",

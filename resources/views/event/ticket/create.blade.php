@@ -33,8 +33,8 @@
                     @enderror
                 </div>
 
-                <x-input type="date" id="start_at">{{ __('ticket.start_at') }}</x-input>
-                <x-input type="date" id="end_at">{{ __('ticket.end_at') }}</x-input>
+                <x-input type="date" id="start">{{ __('ticket.start_at') }}</x-input>
+                <x-input type="date" id="end">{{ __('ticket.end_at') }}</x-input>
             </div>
             <x-button type="submit">{{ __('general.submit') }}</x-button>
         </form>

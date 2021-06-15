@@ -9,8 +9,8 @@
 
                 <x-input type="text" id="name" value="{{ $event->name }}">{{ __('event.name') }}</x-input>
 
-                <x-input type="date" id="start_date" value="{{ $event->start_date }}">{{ __('event.start_date') }}</x-input>
-                <x-input type="date" id="end_date" value="{{ $event->end_date }}">{{ __('event.end_date') }}</x-input>
+                <x-input type="date" id="start" value="{{ $event->start }}">{{ __('event.start_date') }}</x-input>
+                <x-input type="date" id="end" value="{{ $event->end }}">{{ __('event.end_date') }}</x-input>
 
                 <x-input type="number" id="total_tickets" value="{{ $event->total_tickets }}">{{ __('event.total_tickets') }}</x-input>
                 <x-input type="number" id="max_user_tickets" value="{{ $event->max_user_tickets }}">{{ __('event.max_user_tickets') }}</x-input>

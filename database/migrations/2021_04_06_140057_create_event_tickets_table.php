@@ -18,8 +18,8 @@ class CreateEventTicketsTable extends Migration
             $table->unsignedBigInteger('event_id');
             $table->unsignedBigInteger('user_id');
 
-            $table->date('start_at');
-            $table->date('end_at');
+            $table->date('start');
+            $table->date('end');
 
             $table->string('firstname');
             $table->string('lastname');

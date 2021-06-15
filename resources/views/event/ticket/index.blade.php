@@ -50,4 +50,7 @@
             </div>
         @endforeach
     </div>
+    <div class="p-12 mx-10">
+        {{ $tickets->links() }}
+    </div>
 @endsection

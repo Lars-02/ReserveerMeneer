@@ -34,4 +34,5 @@ return [
     'search' => 'Search',
     'search.from' => 'Search from',
     'search.until' => 'Search until',
+    'download' => 'Download :format',
 ];

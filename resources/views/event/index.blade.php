@@ -39,4 +39,7 @@
             </div>
         @endforeach
     </div>
+    <div class="p-12 mx-10">
+        {{ $events->links() }}
+    </div>
 @endsection

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\EventRequest;
 use App\Models\Event;
+use App\Models\Pagination;
 use App\Models\User;
 use App\Policies\EventPolicy;
 use Illuminate\Contracts\Foundation\Application;
@@ -33,12 +34,12 @@ class EventController extends Controller
      *
      * @return Application|Factory|View
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('event.index', ['events' => Event::all()]);
+        return view('event.index', ['events' => Event::paginate(15)]);
     }
 
-    /**
+    /**s
      * Show the form for creating a new resource.
      *
      * @return Application|Factory|View

@@ -29,7 +29,7 @@ class CinemaController extends Controller
      */
     public function index()
     {
-        return view('cinema.index', ['cinemas' => Cinema::all()]);
+        return view('cinema.index', ['cinemas' => Cinema::paginate(15)]);
     }
 
     /**

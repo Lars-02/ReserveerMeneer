@@ -10,7 +10,6 @@ use App\Http\Controllers\MovieSlotController;
 use App\Http\Controllers\MovieTicketController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\RestaurantController;
-use App\Http\Controllers\TicketController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 

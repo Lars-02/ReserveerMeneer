@@ -15,6 +15,7 @@
         @foreach($cinemas as $cinema)
             <div class="h-full bg-white rounded shadow p-4  flex flex-col content-between ">
                 <h2>{{ $cinema->name }}</h2>
+                <p>{{ __('cinema.halls.number', ['halls' => $cinema->cinemaHalls->count()]) }}</p>
                 <h3><i class="fas fa-city"></i> {{ __('general.location') }}</h3>
                 <p>{{ __('general.location.city', ['city' => $cinema->city]) }}</p>
                 <p>{{ $cinema->house_number . ' ' . $cinema->streetname}}</p>
@@ -33,5 +34,8 @@
                 </div>
             </div>
         @endforeach
+    </div>
+    <div class="p-12 mx-10">
+        {{ $cinemas->links() }}
     </div>
 @endsection

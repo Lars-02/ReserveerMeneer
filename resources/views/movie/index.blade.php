@@ -8,6 +8,7 @@
             <h2>{{ $movie->name }}</h2>
             <p>{{ __('cinema.duration', ['duration' => $movie->duration]) }}</p>
             <p>{{ __('cinema.minimum_age', ['age' => $movie->minimum_age]) }}</p>
+            <p>{{ __('cinema.halls.number.movie', ['halls' => $movie->movieSlots->count()]) }}</p>
             @can('view', $movie)
                 <div class="flex items-center mt-4">
                     <a href="{{ route('movie.show', $movie) }}">
@@ -17,5 +18,8 @@
             @endcan
         </div>
     @endforeach
+</div>
+<div class="p-12 mx-10">
+    {{ $movies->links() }}
 </div>
 @endsection

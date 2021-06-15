@@ -19,8 +19,8 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body>
-    <div id="app" class="bg-gray-100 min-h-screen">
+<body class="bg-gray-100">
+    <div id="app" class="min-h-screen">
 
         @include('layouts.nav')
 

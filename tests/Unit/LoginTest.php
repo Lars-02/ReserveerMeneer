@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
+
 class LoginTest extends TestCase
 {
     use RefreshDatabase;
@@ -13,7 +14,17 @@ class LoginTest extends TestCase
     /**
      * @test
      */
-    public function userCanViewLogin()
+    public function basic_request()
+    {
+        $response = $this->get('/');
+
+        $response->assertStatus(200);
+    }
+
+    /**
+     * @test
+     */
+    public function user_can_view_login()
     {
         $response = $this->get('/login');
 
@@ -24,7 +35,7 @@ class LoginTest extends TestCase
     /**
      * @test
      */
-    public function authenticatedUserRedirectToHomeOnLogin()
+    public function authenticated_user_redirect_to_home_on_login()
     {
         $user = User::factory(User::class)->make();
 
@@ -36,7 +47,7 @@ class LoginTest extends TestCase
     /**
      * @test
      */
-    public function UserCanLoginCorrectPassword()
+    public function user_can_login_correct_password()
     {
         $user = User::factory(User::class)->create([
             'password' => bcrypt($password = 'securePassword'),
@@ -54,7 +65,7 @@ class LoginTest extends TestCase
     /**
      * @test
      */
-    public function UserCannotLoginIncorrectPassword()
+    public function user_cannot_login_incorrect_password()
     {
         $user = User::factory(User::class)->create([
             'password' => bcrypt('securePassword'),

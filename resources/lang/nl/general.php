@@ -10,7 +10,7 @@ return [
     'destroy' => 'Verwijderen',
     'create' => 'Creëer :item',
     'show' => 'Meer info',
-    'buy' => 'Koop',
+    'buy' => 'Reserveer',
     'firstname' => 'Voornaam',
     'lastname' => 'Achternaam',
     'birthday' => 'Geboortedatum',

@@ -2,16 +2,13 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Http\Requests\CinemaRequest;
 use App\Models\Cinema;
-use App\Models\Event;
-use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Routing\Redirector;
 
 class CinemaController extends Controller
@@ -73,33 +70,34 @@ class CinemaController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param Cinema $cinema
-     * @return void
+     * @return Application|Factory|View
      */
     public function edit(Cinema $cinema)
     {
-        //
+        return view('cinema.edit', ['cinema' => $cinema]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
+     * @param CinemaRequest $request
      * @param Cinema $cinema
-     * @return void
+     * @return Application|Redirector|RedirectResponse
      */
-    public function update(Request $request, Cinema $cinema)
+    public function update(CinemaRequest $request, Cinema $cinema)
     {
-        //
+        $cinema->update($request->validated());
+        return redirect(route('cinema.show', $cinema));
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param Cinema $cinema
-     * @return RedirectResponse
+     * @return RedirectResponse|Application|Redirector
      * @throws Exception
      */
-    public function destroy(Cinema $cinema): RedirectResponse
+    public function destroy(Cinema $cinema)
     {
         $cinema->delete();
         return redirect(route('cinema.index'));

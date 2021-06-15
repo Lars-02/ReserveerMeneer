@@ -40,7 +40,7 @@ class CinemaRequest extends FormRequest
     function rules()
     {
         return [
-            'name' => "required|unique:events,name" . (empty($this->event) ? '' : ',' . $this->event->id) . "|string|between:2,48|regex:/^[a-z ,.'-]+$/i",
+            'name' => "required|unique:cinemas,name" . (empty($this->cinema) ? '' : ',' . $this->cinema->id) . "|string|between:2,48|regex:/^[a-z ,.'-]+$/i",
             'city' => "required|string|between:2,24|regex:/^[a-z ,.'-]+$/i",
             'streetname' => "required|string|between:2,24|regex:/^[a-z ,.'-]+$/i",
             'house_number' => "required|alpha_num|between:1,10",

@@ -24,7 +24,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static Builder|CinemaHallRow whereId($value)
  * @method static Builder|CinemaHallRow whereNumberOfSeats($value)
  * @mixin Eloquent
- * @property-read \App\Models\MovieSlot|null $movieSlot
+ * @property-read MovieSlot|null $movieSlot
  * @method static Builder|CinemaHallRow whereRow($value)
  */
 class CinemaHallRow extends Model

@@ -13,5 +13,5 @@ return [
     'name' => 'Ticket for :name',
     'picture' => 'Picture',
     'picture.alt' => 'Your ticket picture',
-    'seat' => 'You ticket is for row :row seat :seat'
+    'seat' => 'Your ticket is for row :row, seat :seat'
 ];

@@ -13,14 +13,16 @@
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
         @foreach($cinemas as $cinema)
-            <div class="h-full bg-white rounded shadow p-4  flex flex-col content-between ">
-                <h2>{{ $cinema->name }}</h2>
-                <p>{{ __('cinema.halls.number', ['halls' => $cinema->cinemaHalls->count()]) }}</p>
-                <h3><i class="fas fa-city"></i> {{ __('general.location') }}</h3>
-                <p>{{ __('general.location.city', ['city' => $cinema->city]) }}</p>
-                <p>{{ $cinema->house_number . ' ' . $cinema->streetname}}</p>
-                <p>{{ $cinema->city . ', ' . $cinema->country_code }}</p>
-                <div class="flex justify-between mt-4">
+            <div class="h-full bg-white rounded shadow p-4 flex flex-col">
+                <div class="flex flex-col">
+                    <h2>{{ $cinema->name }}</h2>
+                    <p>{{ __('cinema.halls.number', ['halls' => $cinema->cinemaHalls->count()]) }}</p>
+                    <h3><i class="fas fa-city"></i> {{ __('general.location') }}</h3>
+                    <p>{{ __('general.location.city', ['city' => $cinema->city]) }}</p>
+                    <p>{{ $cinema->house_number . ' ' . $cinema->streetname}}</p>
+                    <p>{{ $cinema->city . ', ' . $cinema->country_code }}</p>
+                </div>
+                <div class="flex flex-row flex-grow items-end justify-between mt-4">
                     @can('update', $cinema)
                         <a href="{{ route('cinema.edit', $cinema) }}">
                             <x-button>{{ __('general.edit') }}</x-button>

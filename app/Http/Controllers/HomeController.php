@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\HomeRequest;
 use App\Models\Event;
-use App\Models\Movie;
 use App\Models\MovieSlot;
 use App\Models\Pagination;
 use Illuminate\Contracts\Support\Renderable;
-use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
@@ -15,10 +14,10 @@ class HomeController extends Controller
     /**
      * Show the application dashboard.
      *
-     * @param Request $request
+     * @param HomeRequest $request
      * @return Renderable
      */
-    public function index(Request $request)
+    public function index(HomeRequest $request): Renderable
     {
         $items = Event::all()->push(MovieSlot::all())->flatten();
 

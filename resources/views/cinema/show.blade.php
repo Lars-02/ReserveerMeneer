@@ -3,13 +3,20 @@
 @section('content')
     <div class="flex justify-between">
         <h1>{{ __('cinema.cinema') }}</h1>
-        @can('update', $cinema)
-            <div class="flex items-center">
+        <div class="flex items-center gap-4">
+            @can('update', $cinema)
                 <a href="{{ route('cinema.edit', $cinema) }}">
                     <x-button>{{ __('general.edit') }}</x-button>
                 </a>
-            </div>
-        @endcan
+            @endcan
+            @can('delete', $cinema)
+                <form action="{{ route('cinema.destroy', $cinema) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <x-button type="submit" class="bg-red-600">{{ __('general.destroy') }}</x-button>
+                </form>
+            @endcan
+        </div>
     </div>
     <div class="h-full bg-white rounded shadow p-4  flex flex-col content-between ">
         <h2>{{ $cinema->name }}</h2>

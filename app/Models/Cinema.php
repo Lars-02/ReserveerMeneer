@@ -44,6 +44,8 @@ class Cinema extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+    
     public function cinemaHalls() {
         return $this->hasMany(CinemaHall::class);
     }

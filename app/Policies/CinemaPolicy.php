@@ -39,9 +39,9 @@ class CinemaPolicy
      *
      * @param User $user
      * @param Cinema $cinema
-     * @return void
+     * @return bool
      */
-    public function view(?User $user, Cinema $cinema)
+    public function view(?User $user, Cinema $cinema): bool
     {
         return true;
     }
@@ -50,11 +50,11 @@ class CinemaPolicy
      * Determine whether the user can create models.
      *
      * @param User $user
-     * @return void
+     * @return false
      */
-    public function create(User $user)
+    public function create(User $user): bool
     {
-        //
+        return false;
     }
 
     /**
@@ -62,11 +62,11 @@ class CinemaPolicy
      *
      * @param User $user
      * @param Cinema $cinema
-     * @return void
+     * @return false
      */
-    public function update(User $user, Cinema $cinema)
+    public function update(User $user, Cinema $cinema): bool
     {
-        //
+        return false;
     }
 
     /**
@@ -74,34 +74,10 @@ class CinemaPolicy
      *
      * @param User $user
      * @param Cinema $cinema
-     * @return void
+     * @return false
      */
-    public function delete(User $user, Cinema $cinema)
+    public function delete(User $user, Cinema $cinema): bool
     {
-        //
-    }
-
-    /**
-     * Determine whether the user can restore the model.
-     *
-     * @param User $user
-     * @param Cinema $cinema
-     * @return void
-     */
-    public function restore(User $user, Cinema $cinema)
-    {
-        //
-    }
-
-    /**
-     * Determine whether the user can permanently delete the model.
-     *
-     * @param User $user
-     * @param Cinema $cinema
-     * @return void
-     */
-    public function forceDelete(User $user, Cinema $cinema)
-    {
-        //
+        return false;
     }
 }

@@ -1,11 +1,23 @@
 @extends('layouts.app')
 
 @section('content')
-    @empty(request()->route('user'))
-        <h1 class="my-6">{{ __('ticket.event.title') }}</h1>
-    @else
-        <h1 class="my-6">{{ __('ticket.title', ['name' => request()->route('user')->fullname]) }}</h1>
-    @endempty
+    <div class="flex justify-between">
+        @empty(request()->route('user'))
+            <h1 class="my-6">{{ __('ticket.event.title') }}</h1>
+        @else
+            <h1 class="my-6">{{ __('ticket.title', ['name' => request()->route('user')->fullname]) }}</h1>
+        @endempty
+        @can('download', \App\Models\EventTicket::class)
+            <div class="flex items-center gap-4">
+                <a href="{{ route('event.ticket.download.csv', empty(request()->route('user')) ? Auth::user() : request()->route('user')) }}">
+                    <x-button>{{ __('general.download', ['format' => 'CSV']) }}</x-button>
+                </a>
+                <a href="{{ route('event.ticket.download.json', empty(request()->route('user')) ? Auth::user() : request()->route('user')) }}">
+                    <x-button>{{ __('general.download', ['format' => 'JSON']) }}</x-button>
+                </a>
+            </div>
+        @endcan
+    </div>
     <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
         @foreach($tickets as $event_ticket)
             <div class="h-full bg-white rounded shadow p-4  flex flex-col content-between ">

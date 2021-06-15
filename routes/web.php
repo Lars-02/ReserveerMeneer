@@ -49,9 +49,9 @@ Route::group(['prefix' => 'restaurant', 'as' => 'restaurant.'], function () {
 Route::group(['prefix' => 'event', 'as' => 'event.'], function () {
     Route::get('ticket/{user?}', [EventTicketController::class, 'index'])
         ->name('ticket.index');
-    Route::get('ticket/{user?}/download/json', [EventTicketController::class, 'downloadJSON'])
+    Route::get('ticket/{user}/download/json', [EventTicketController::class, 'downloadJSON'])
         ->name('ticket.download.json');
-    Route::get('ticket/{user?}/download/csv', [EventTicketController::class, 'downloadCSV'])
+    Route::get('ticket/{user}/download/csv', [EventTicketController::class, 'downloadCSV'])
         ->name('ticket.download.csv');
     Route::post('{event}', [EventTicketController::class, 'store'])
         ->name('ticket.store');

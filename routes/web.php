@@ -56,18 +56,18 @@ Route::group(['prefix' => 'event', 'as' => 'event.'], function () {
         ->name('ticket.store');
     Route::delete('ticket/{event_ticket}', [EventTicketController::class, 'destroy'])
         ->name('ticket.destroy');
-    Route::get('{event}/buy', [EventTicketController::class, 'create'])
+    Route::get('{event}/reserve', [EventTicketController::class, 'create'])
         ->name('buy');
 });
 
 Route::group(['prefix' => 'movie', 'as' => 'movie.'], function () {
     Route::get('ticket/{user?}', [MovieTicketController::class, 'index'])
         ->name('ticket.index');
-    Route::post('{movie_slot}', [MovieTicketController::class, 'store'])
+    Route::post('ticket/{movie_slot}', [MovieTicketController::class, 'store'])
         ->name('ticket.store');
     Route::delete('ticket/{movie_ticket}', [MovieTicketController::class, 'destroy'])
         ->name('ticket.destroy');
-    Route::get('{movie_slot}/buy', [MovieTicketController::class, 'create'])
+    Route::get('{movie_slot}/reserve', [MovieTicketController::class, 'create'])
         ->name('buy');
     Route::get('ticket/{movie_ticket}/info', [MovieTicketController::class, 'show'])
         ->name('ticket.show');

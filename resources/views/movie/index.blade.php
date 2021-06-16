@@ -21,6 +21,11 @@
                     <p>{{ __('cinema.halls.number.movie', ['halls' => $movie->movieSlots->count()]) }}</p>
                 </div>
                 <div class="flex flex-row flex-grow items-end justify-between mt-4">
+                    @can('update', $movie)
+                        <a href="{{ route('movie.edit', $movie) }}">
+                            <x-button>{{ __('general.edit') }}</x-button>
+                        </a>
+                    @endcan
                     @can('view', $movie)
                         <div class="flex items-center mt-4">
                             <a href="{{ route('movie.show', $movie) }}">

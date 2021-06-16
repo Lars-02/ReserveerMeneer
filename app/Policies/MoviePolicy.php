@@ -54,7 +54,7 @@ class MoviePolicy
      */
     public function create(User $user)
     {
-        //
+        return false;
     }
 
     /**
@@ -66,7 +66,7 @@ class MoviePolicy
      */
     public function update(User $user, Movie $movie)
     {
-        //
+        return false;
     }
 
     /**
@@ -78,30 +78,7 @@ class MoviePolicy
      */
     public function delete(User $user, Movie $movie)
     {
-        //
-    }
-
-    /**
-     * Determine whether the user can restore the model.
-     *
-     * @param User $user
-     * @param Movie $movie
-     * @return mixed
-     */
-    public function restore(User $user, Movie $movie)
-    {
-        //
-    }
-
-    /**
-     * Determine whether the user can permanently delete the model.
-     *
-     * @param User $user
-     * @param Movie $movie
-     * @return mixed
-     */
-    public function forceDelete(User $user, Movie $movie)
-    {
-        //
+        return false;
     }
 }
+

@@ -47,7 +47,7 @@ class MovieController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
+     * @param MovieRequest $request
      * @return Application|RedirectResponse|Redirector
      */
     public function store(MovieRequest $request)
@@ -81,11 +81,11 @@ class MovieController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
+     * @param MovieRequest $request
      * @param Movie $movie
      * @return Application|RedirectResponse|Redirector
      */
-    public function update(Request $request, Movie $movie)
+    public function update(MovieRequest $request, Movie $movie)
     {
         $movie->update($request->validated());
         return redirect(route('movie.show', $movie));

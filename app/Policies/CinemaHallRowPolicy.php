@@ -26,23 +26,23 @@ class CinemaHallRowPolicy
     /**
      * Determine whether the user can create models.
      *
-     * @param  \App\Models\User  $user
-     * @return mixed
+     * @param User $user
+     * @return false
      */
     public function create(User $user)
     {
-        //
+        return false;
     }
 
     /**
      * Determine whether the user can delete the model.
      *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\CinemaHallRow  $cinemaHallRow
-     * @return mixed
+     * @param User $user
+     * @param CinemaHallRow $cinemaHallRow
+     * @return false
      */
     public function delete(User $user, CinemaHallRow $cinemaHallRow)
     {
-        //
+        return false;
     }
 }

@@ -37,6 +37,8 @@ class Movie extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     public function movieSlots() {
         return $this->hasMany(MovieSlot::class);
     }

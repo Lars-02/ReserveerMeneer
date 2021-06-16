@@ -1,7 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>{{ __('cinema.movies') }}</h1>
+    <div class="flex justify-between">
+        <h1>{{ __('cinema.movies') }}</h1>
+        @can('create', \App\Models\Movie::class)
+            <div class="flex items-center">
+                <a href="{{ route('movie.create') }}">
+                    <x-button>{{ __('general.create', ['item' => __('cinema.movies')]) }}</x-button>
+                </a>
+            </div>
+        @endcan
+    </div>
     <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
         @foreach($movies as $movie)
             <div class="h-full bg-white rounded shadow p-4 flex flex-col">

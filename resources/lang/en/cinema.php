@@ -17,6 +17,8 @@ return [
     'movies.number' => 'There are :movies movies in this hall',
     'movies.cinema' => 'All Movies in this Cinema',
     'duration' => 'This movie is :duration long',
+    'duration,title' => 'Length',
+    'age' => 'Minimum age',
     'minimum_age' => 'You need to be at least :age years old',
     'time' => 'Time',
     'starting_at' => 'Starting at :date',

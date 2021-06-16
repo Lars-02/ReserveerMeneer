@@ -26,11 +26,11 @@ class CinemaHallPolicy
     /**
      * Determine whether the user can view the model.
      *
-     * @param User $user
+     * @param User|null $user
      * @param CinemaHall $cinemaHall
-     * @return mixed
+     * @return bool
      */
-    public function view(?User $user, CinemaHall $cinemaHall)
+    public function view(?User $user, CinemaHall $cinemaHall): bool
     {
         return true;
     }
@@ -39,23 +39,11 @@ class CinemaHallPolicy
      * Determine whether the user can create models.
      *
      * @param User $user
-     * @return mixed
+     * @return false
      */
-    public function create(User $user)
+    public function create(User $user): bool
     {
-        //
-    }
-
-    /**
-     * Determine whether the user can update the model.
-     *
-     * @param User $user
-     * @param CinemaHall $cinemaHall
-     * @return mixed
-     */
-    public function update(User $user, CinemaHall $cinemaHall)
-    {
-        //
+        return false;
     }
 
     /**
@@ -63,34 +51,10 @@ class CinemaHallPolicy
      *
      * @param User $user
      * @param CinemaHall $cinemaHall
-     * @return mixed
+     * @return false
      */
-    public function delete(User $user, CinemaHall $cinemaHall)
+    public function delete(User $user, CinemaHall $cinemaHall): bool
     {
-        //
-    }
-
-    /**
-     * Determine whether the user can restore the model.
-     *
-     * @param User $user
-     * @param CinemaHall $cinemaHall
-     * @return mixed
-     */
-    public function restore(User $user, CinemaHall $cinemaHall)
-    {
-        //
-    }
-
-    /**
-     * Determine whether the user can permanently delete the model.
-     *
-     * @param User $user
-     * @param CinemaHall $cinemaHall
-     * @return mixed
-     */
-    public function forceDelete(User $user, CinemaHall $cinemaHall)
-    {
-        //
+        return false;
     }
 }

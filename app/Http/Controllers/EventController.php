@@ -4,17 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\EventRequest;
 use App\Models\Event;
-use App\Models\Pagination;
-use App\Models\User;
-use App\Policies\EventPolicy;
+use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Routing\Redirector;
-use Illuminate\Support\Facades\Auth;
 
 class EventController extends Controller
 {
@@ -89,7 +85,8 @@ class EventController extends Controller
      * Remove the specified resource from storage.
      *
      * @param Event $event
-     * @return void
+     * @return Application|Redirector|RedirectResponse
+     * @throws Exception
      */
     public function destroy(Event $event)
     {

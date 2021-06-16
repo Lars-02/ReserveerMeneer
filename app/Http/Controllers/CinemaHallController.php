@@ -4,12 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Cinema;
 use App\Models\CinemaHall;
+use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Routing\Redirector;
 
 class CinemaHallController extends Controller
@@ -52,7 +52,8 @@ class CinemaHallController extends Controller
      * Remove the specified resource from storage.
      *
      * @param CinemaHall $cinemaHall
-     * @return void
+     * @return Application|Redirector|RedirectResponse
+     * @throws Exception
      */
     public function destroy(CinemaHall $cinemaHall)
     {

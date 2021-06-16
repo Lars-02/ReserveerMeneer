@@ -1,6 +1,23 @@
 @extends('layouts.app')
 
 @section('content')
+    <div class="flex justify-between">
+        <h1>{{ __('cinema.movies') }}</h1>
+        <div class="flex items-center gap-4">
+            @can('update', $movie)
+                <a href="{{ route('movie.edit', $movie) }}">
+                    <x-button>{{ __('general.edit') }}</x-button>
+                </a>
+            @endcan
+            @can('delete', $movie)
+                <form action="{{ route('movie.destroy', $movie) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <x-button type="submit" class="bg-red-600">{{ __('general.destroy') }}</x-button>
+                </form>
+            @endcan
+        </div>
+    </div>
     <div class="h-full bg-white rounded shadow p-4  flex flex-col content-between ">
         <h1>{{ $movie->name }}</h1>
         <p>{{ __('cinema.duration', ['duration' => $movie->duration]) }}</p>
@@ -18,7 +35,7 @@
                 <p>{{ $movieSlot->cinemaHall->cinema->house_number . ' ' . $movieSlot->cinemaHall->cinema->streetname}}</p>
                 <p>{{ $movieSlot->cinemaHall->cinema->city . ', ' . $movieSlot->cinemaHall->cinema->country_code }}</p>
                 <h3><i class="fas fa-calendar-day"></i> {{ __('cinema.time') }}</h3>
-                <p>{{ __('cinema.starting_at', ['date' => $movieSlot->starting_at]) }}</p>
+                <p>{{ __('cinema.starting_at', ['date' => $movieSlot->start]) }}</p>
                 @can('create', \App\Models\MovieTicket::class)
                     <div class="flex items-center mt-4">
                         <a href="{{ route('movie.buy', $movieSlot) }}">

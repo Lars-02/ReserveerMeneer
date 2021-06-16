@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="flex justify-between">
-        <h1>{{ __('cinema.hall', ['index' => $cinema_hall->id]) }}</h1>
+        <h1>{{ __('cinema.hall.index', ['index' => $cinema_hall->id]) }}</h1>
         <div class="flex items-center gap-4">
             @can('delete', $cinema_hall)
                 <form action="{{ route('cinemahall.destroy', $cinema_hall) }}" method="POST">

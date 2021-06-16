@@ -4,6 +4,12 @@
     <div class="flex justify-between">
         <h1>{{ __('cinema.cinema') }}</h1>
         <div class="flex items-center gap-4">
+            @can('create', \App\Models\CinemaHall::class)
+                <form action="{{ route('cinemahall.store', $cinema) }}" method="POST">
+                    @csrf
+                    <x-button type="submit" class="bg-gray-400">{{ __('general.create', ['item' => __('cinema.hall')]) }}</x-button>
+                </form>
+            @endcan
             @can('update', $cinema)
                 <a href="{{ route('cinema.edit', $cinema) }}">
                     <x-button>{{ __('general.edit') }}</x-button>
@@ -28,9 +34,9 @@
     </div>
     <h1>{{ __('cinema.halls') }}</h1>
     <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-        @foreach($cinema->cinemaHalls as $index => $cinema_hall)
+        @foreach($cinema->cinemaHalls as $cinema_hall)
             <div class="h-full bg-white rounded shadow p-4  flex flex-col content-between ">
-                <h2>{{ __('cinema.hall', ['index' => $index + 1]) }}</h2>
+                <h2>{{ __('cinema.hall.index', ['index' => $cinema_hall->id]) }}</h2>
                 <p>{{ __('cinema.rows', ['rows' => $cinema_hall->totalRows()]) }}</p>
                 <p>{{ __('cinema.seats', ['seats' => $cinema_hall->totalSeats()]) }}</p>
                 <h3><i class="fas fa-video"></i> {{ __('cinema.movies') }}</h3>

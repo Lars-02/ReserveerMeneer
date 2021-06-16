@@ -33,8 +33,8 @@ class CinemaHallController extends Controller
      */
     public function store(Request $request, Cinema $cinema)
     {
-        CinemaHall::create(['cinema_id' => $cinema->id]);
-        return redirect(route('cinema.show', $cinema));
+        $cinemahall = CinemaHall::create(['cinema_id' => $cinema->id]);
+        return redirect(route('cinemahall.show', $cinemahall));
     }
 
     /**

@@ -13,16 +13,30 @@
             @endcan
         </div>
     </div>
-    <div class="h-full bg-white rounded shadow p-4  flex flex-col content-between ">
-        <h2>{{ $cinema_hall->cinema->name }}</h2>
-        <p>{{ __('cinema.rows', ['rows' => $cinema_hall->totalRows()]) }}</p>
-        <p>{{ __('cinema.seats', ['seats' => $cinema_hall->totalSeats()]) }}</p>
-        <h3><i class="fas fa-city"></i> {{ __('general.location') }}</h3>
-        <p>{{ __('general.location.city', ['city' => $cinema_hall->cinema->city]) }}</p>
-        <p>{{ $cinema_hall->cinema->house_number . ' ' . $cinema_hall->cinema->streetname}}</p>
-        <p>{{ $cinema_hall->cinema->city . ', ' . $cinema_hall->cinema->country_code }}</p>
-        <h3><i class="fas fa-video"></i> {{ __('cinema.movies') }}</h3>
-        <p>{{ __('cinema.movies.number', ['movies' => $cinema_hall->movieSlots->count()]) }}</p>
+    <div class="flex gap-10">
+        <div class="h-full bg-white rounded shadow p-4  flex flex-col content-between ">
+            <h2>{{ $cinema_hall->cinema->name }}</h2>
+            <p>{{ __('cinema.rows', ['rows' => $cinema_hall->totalRows()]) }}</p>
+            <p>{{ __('cinema.seats', ['seats' => $cinema_hall->totalSeats()]) }}</p>
+            <h3><i class="fas fa-city"></i> {{ __('general.location') }}</h3>
+            <p>{{ __('general.location.city', ['city' => $cinema_hall->cinema->city]) }}</p>
+            <p>{{ $cinema_hall->cinema->house_number . ' ' . $cinema_hall->cinema->streetname}}</p>
+            <p>{{ $cinema_hall->cinema->city . ', ' . $cinema_hall->cinema->country_code }}</p>
+            <h3><i class="fas fa-video"></i> {{ __('cinema.movies') }}</h3>
+            <p>{{ __('cinema.movies.number', ['movies' => $cinema_hall->movieSlots->count()]) }}</p>
+        </div>
+        <div class="flex-grow h-full bg-white rounded shadow p-4 flex flex-col gap-1 select-none">
+            @foreach($cinema_hall->cinemaHallRows as $cinemaHallRow)
+                <div class="flex flex-row gap-1">
+                    <div>{{ $cinemaHallRow->row }}</div>
+                    <div class="flex flex-row mx-auto gap-2">
+                        @for($seat = 1; $seat <= $cinemaHallRow->number_of_seats; $seat++)
+                            <div class="rounded shadow bg-gray-800 text-white text-sm text-center w-6">{{ $seat }}</div>
+                        @endfor
+                    </div>
+                </div>
+            @endforeach
+        </div>
     </div>
     <h1>{{ __('cinema.movies') }}</h1>
     <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">

@@ -42,6 +42,7 @@ class RegisterTest extends DuskTestCase
 
             $browser
                 ->clickAtXPath('//*[@id="app"]/nav/div[10]/div')
+                ->pause(500)
                 ->clickAtXPath('//*[@id="app"]/nav/div[10]/div/div[2]/a[4]')
                 ->waitForText('Login');
 

@@ -3,14 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\RestaurantRequest;
-use App\Models\Cinema;
 use App\Models\Restaurant;
 use App\Models\RestaurantType;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
 
 class RestaurantController extends Controller
@@ -66,34 +64,39 @@ class RestaurantController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param Restaurant $restaurant
-     * @return void
+     * @return Application|Factory|View
      */
     public function edit(Restaurant $restaurant)
     {
-        //
+        $types = RestaurantType::all()->mapWithKeys(function ($item) use ($restaurant) {
+            return [$item['id'] => [$restaurant->restaurantType->id === $item['id'], $item['type']]];
+        });
+        return view('restaurant.edit', ['restaurant' => $restaurant, 'types' => $types]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
+     * @param RestaurantRequest $request
      * @param Restaurant $restaurant
-     * @return void
+     * @return Application|Redirector|RedirectResponse
      */
-    public function update(Request $request, Restaurant $restaurant)
+    public function update(RestaurantRequest $request, Restaurant $restaurant)
     {
-        //
+        $restaurant->update($request->validated());
+        return redirect(route('restaurant.index'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param Restaurant $restaurant
-     * @return void
+     * @return Application|Redirector|RedirectResponse
      */
     public function destroy(Restaurant $restaurant)
     {
-        //
+        $restaurant->delete();
+        return redirect(route('restaurant.index'));
     }
 }
 

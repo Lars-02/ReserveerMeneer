@@ -27,34 +27,22 @@ class RestaurantPolicy
      * Determine whether the user can view any models.
      *
      * @param User $user
-     * @return mixed
+     * @return bool
      */
-    public function viewAny(?User $user)
+    public function viewAny(?User $user): bool
     {
         return true;
-    }
-
-    /**
-     * Determine whether the user can view the model.
-     *
-     * @param User $user
-     * @param Restaurant $restaurant
-     * @return mixed
-     */
-    public function view(User $user, Restaurant $restaurant)
-    {
-        //
     }
 
     /**
      * Determine whether the user can create models.
      *
      * @param User $user
-     * @return mixed
+     * @return false
      */
-    public function create(User $user)
+    public function create(User $user): bool
     {
-        //
+        return false;
     }
 
     /**
@@ -62,11 +50,11 @@ class RestaurantPolicy
      *
      * @param User $user
      * @param Restaurant $restaurant
-     * @return mixed
+     * @return false
      */
-    public function update(User $user, Restaurant $restaurant)
+    public function update(User $user, Restaurant $restaurant): bool
     {
-        //
+        return false;
     }
 
     /**
@@ -74,34 +62,10 @@ class RestaurantPolicy
      *
      * @param User $user
      * @param Restaurant $restaurant
-     * @return mixed
+     * @return false
      */
-    public function delete(User $user, Restaurant $restaurant)
+    public function delete(User $user, Restaurant $restaurant): bool
     {
-        //
-    }
-
-    /**
-     * Determine whether the user can restore the model.
-     *
-     * @param User $user
-     * @param Restaurant $restaurant
-     * @return mixed
-     */
-    public function restore(User $user, Restaurant $restaurant)
-    {
-        //
-    }
-
-    /**
-     * Determine whether the user can permanently delete the model.
-     *
-     * @param User $user
-     * @param Restaurant $restaurant
-     * @return mixed
-     */
-    public function forceDelete(User $user, Restaurant $restaurant)
-    {
-        //
+        return false;
     }
 }

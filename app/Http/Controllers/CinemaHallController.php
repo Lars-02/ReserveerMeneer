@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cinema;
 use App\Models\CinemaHall;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Routing\Redirector;
 
 class CinemaHallController extends Controller
 {
@@ -23,31 +26,22 @@ class CinemaHallController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param Request $request
-     * @return Response
+     * @return Application|RedirectResponse|Redirector
      */
-    public function store(Request $request)
+    public function store(Request $request, Cinema $cinema)
     {
-        //
+        CinemaHall::create(['cinema_id' => $cinema->id]);
+        return redirect(route('cinema.show', $cinema));
     }
 
     /**
      * Display the specified resource.
      *
      * @param CinemaHall $cinemaHall
-     * @return Application|Factory|View|Response
+     * @return Application|Factory|View
      */
     public function show(CinemaHall $cinemaHall)
     {
@@ -55,36 +49,14 @@ class CinemaHallController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param CinemaHall $cinemaHall
-     * @return Response
-     */
-    public function edit(CinemaHall $cinemaHall)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param Request $request
-     * @param CinemaHall $cinemaHall
-     * @return Response
-     */
-    public function update(Request $request, CinemaHall $cinemaHall)
-    {
-        //
-    }
-
-    /**
      * Remove the specified resource from storage.
      *
      * @param CinemaHall $cinemaHall
-     * @return Response
+     * @return void
      */
     public function destroy(CinemaHall $cinemaHall)
     {
-        //
+        $cinemaHall->delete();
+        return redirect(route('cinemahall.index'));
     }
 }

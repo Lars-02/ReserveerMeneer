@@ -79,18 +79,12 @@ Route::resource('cinema', CinemaController::class);
 
 Route::resource('restaurant', RestaurantController::class);
 
-Route::group(['prefix' => 'cinema', 'as' => 'cinema'], function () {
-    Route::resource('hall', CinemaHallController::class, ['parameters' => [
-        'hall' => 'cinema_hall'
-    ], 'except' => 'index']);
-    Route::group(['prefix' => 'hall/{cinema_hall}'], function () {
-        Route::resource('movie', MovieSlotController::class, ['parameters' => [
-            'hall' => 'cinema_hall'
-        ], 'except' => 'index']);
-    });
-});
+Route::post('cinema/{cinema}/hall/create', [CinemaHallController::class, 'store'])
+    ->name('cinemahall.store');
 
-
+Route::resource('cinemahall', CinemaHallController::class)
+    ->parameter('cinemahall', 'cinema_hall')
+    ->only('show', 'destroy');
 
 Route::resource('event', EventController::class)
     ->except('show');

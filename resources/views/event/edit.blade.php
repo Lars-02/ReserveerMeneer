@@ -21,7 +21,16 @@
                 <x-input type="text" id="country_code" value="{{ $event->country_code }}">{{ __('general.country_code') }}</x-input>
 
             </div>
-            <x-button type="submit">{{ __('general.submit') }}</x-button>
+            <div class="flex justify-between">
+                <x-button type="submit">{{ __('general.submit') }}</x-button>
+                @can('delete', $event)
+                    <form action="{{ route('event.destroy', $event) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <x-button type="submit" class="bg-red-600">{{ __('general.destroy') }}</x-button>
+                    </form>
+                @endcan
+            </div>
         </form>
     </div>
 @endsection

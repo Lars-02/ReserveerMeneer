@@ -3,13 +3,15 @@
 @section('content')
     <div class="flex justify-between">
         <h1>{{ __('cinema.hall', ['index' => $cinema_hall->id]) }}</h1>
-        @can('update', $cinema_hall->cinema)
-            <div class="flex items-center">
-                <a href="{{ route('cinema.edit', $cinema_hall->cinema) }}">
-                    <x-button>{{ __('general.edit') }}</x-button>
-                </a>
-            </div>
-        @endcan
+        <div class="flex items-center gap-4">
+            @can('delete', $cinema_hall)
+                <form action="{{ route('cinemahall.destroy', $cinema_hall) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <x-button type="submit" class="bg-red-600">{{ __('general.destroy') }}</x-button>
+                </form>
+            @endcan
+        </div>
     </div>
     <div class="h-full bg-white rounded shadow p-4  flex flex-col content-between ">
         <h2>{{ $cinema_hall->cinema->name }}</h2>
@@ -25,15 +27,17 @@
     <h1>{{ __('cinema.movies') }}</h1>
     <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
         @foreach($cinema_hall->movieSlots as $movieSlot)
-            <div class="h-full bg-white rounded shadow p-4  flex flex-col content-between ">
-                <h2>{{ $movieSlot->movie->name }}</h2>
-                <h3><i class="fas fa-calendar-day"></i> {{ __('cinema.time') }}</h3>
-                <p>{{ __('cinema.starting_at', ['date' => $movieSlot->starting_at]) }}</p>
-                <h3><i class="fas fa-video"></i> {{ __('cinema.movie') }}</h3>
-                <p>{{ __('cinema.duration', ['duration' => $movieSlot->movie->duration]) }}</p>
-                <p>{{ __('cinema.minimum_age', ['age' => $movieSlot->movie->minimum_age]) }}</p>
+            <div class="h-full bg-white rounded shadow p-4 flex flex-col">
+                <div class="flex flex-col">
+                    <h2>{{ $movieSlot->movie->name }}</h2>
+                    <h3><i class="fas fa-calendar-day"></i> {{ __('cinema.time') }}</h3>
+                    <p>{{ __('cinema.starting_at', ['date' => $movieSlot->starting_at]) }}</p>
+                    <h3><i class="fas fa-video"></i> {{ __('cinema.movie') }}</h3>
+                    <p>{{ __('cinema.duration', ['duration' => $movieSlot->movie->duration]) }}</p>
+                    <p>{{ __('cinema.minimum_age', ['age' => $movieSlot->movie->minimum_age]) }}</p>
+                </div>
                 @can('create', \App\Models\MovieTicket::class)
-                    <div class="flex items-center mt-4">
+                        <div class="flex flex-row flex-grow items-end justify-between mt-4">
                         <a href="{{ route('movie.buy', $movieSlot) }}">
                             <x-button>{{ __('general.buy') }}</x-button>
                         </a>

@@ -7,11 +7,6 @@ use Tests\DuskTestCase;
 
 class RegisterTest extends DuskTestCase
 {
-    /**
-     * A Dusk test example.
-     *
-     * @return void
-     */
     public function testCanRegisterUser()
     {
         $this->browse(function (Browser $browser) {
@@ -23,7 +18,8 @@ class RegisterTest extends DuskTestCase
                 ->type('email', "test@dev")
                 ->type('firstname', "John")
                 ->type('lastname', "Doe")
-                ->type('birthday', "2001-01-01")
+                // ->type('birthday', "2001-12-14")
+                ->type('birthday', "01-01-2001")
                 ->type('city', "Tiel")
                 ->type('streetname', "Timboektoelaan")
                 ->type('house_number', "24")
@@ -33,8 +29,30 @@ class RegisterTest extends DuskTestCase
                 ->click('button[type=submit]');
 
             $browser
-                ->waitForReload()
-                ->assertUrlIs(config('app.url') . '/');
+                ->waitForText('Hey, John Doe');
+        });
+    }
+
+    public function testCanThenLoginUser()
+    {
+        $this->browse(function (Browser $browser) {
+            $browser
+                ->visit('/')
+                ->assertSee('John Doe');
+
+            $browser
+                ->clickAtXPath('//*[@id="app"]/nav/div[10]/div')
+                ->clickAtXPath('//*[@id="app"]/nav/div[10]/div/div[2]/a[4]')
+                ->waitForText('Login');
+
+            $browser
+                ->visit('/login')
+                ->type('email', "test@dev")
+                ->type('password', "12345678")
+                ->click('button[type=submit]');
+
+            $browser
+                ->waitForText('Hey, John Doe');
         });
     }
 }

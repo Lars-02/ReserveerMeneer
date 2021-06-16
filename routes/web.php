@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CinemaController;
 use App\Http\Controllers\CinemaHallController;
+use App\Http\Controllers\CinemaHallRowController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\EventTicketController;
 use App\Http\Controllers\HomeController;
@@ -81,6 +82,13 @@ Route::resource('restaurant', RestaurantController::class);
 
 Route::post('cinema/{cinema}/hall/create', [CinemaHallController::class, 'store'])
     ->name('cinemahall.store');
+
+Route::get('cinemahall/{cinema_hall}/row/create', [CinemaHallRowController::class, 'create'])
+    ->name('cinemahall.row.create');
+Route::post('cinemahall/{cinema_hall}/row', [CinemaHallRowController::class, 'store'])
+    ->name('cinemahall.row.store');
+Route::delete('cinemahall/row/{cinema_hall_row}', [CinemaHallRowController::class, 'destroy'])
+    ->name('cinemahall.row.destroy');
 
 Route::resource('cinemahall', CinemaHallController::class)
     ->parameter('cinemahall', 'cinema_hall')

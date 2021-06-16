@@ -57,7 +57,8 @@ class CinemaHallController extends Controller
      */
     public function destroy(CinemaHall $cinemaHall)
     {
+        $cinema = $cinemaHall->cinema;
         $cinemaHall->delete();
-        return redirect(route('cinemahall.index'));
+        return redirect(route('cinema.show', $cinema));
     }
 }

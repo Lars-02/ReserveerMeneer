@@ -5,7 +5,8 @@ return [
     'my.tickets' => 'My Movies',
     'my.hall' => 'Your Hall is :hall',
     'cinema' => 'Cinema',
-    'hall' => 'CinemaHall',
+    'hall' => 'Cinema Hall',
+    'hall.row' => 'Cinema hall row',
     'hall.index' => 'Cinema Hall :index',
     'halls' => 'Cinema Halls',
     'halls.number' => 'There are :halls halls in this cinema',
@@ -23,4 +24,5 @@ return [
     'time' => 'Time',
     'starting_at' => 'Starting at :date',
     'seat' => 'Your seat',
+    'seat.number' => 'Seats',
 ];

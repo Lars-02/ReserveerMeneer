@@ -30,7 +30,10 @@ use Illuminate\Database\Eloquent\Model;
 class CinemaHallRow extends Model
 {
     use HasFactory;
+
     public $timestamps = false;
+
+    protected $guarded = [];
 
     public function cinemaHall() {
         return $this->belongsTo(CinemaHall::class);

@@ -6,6 +6,7 @@ return [
     'my.hall' => 'Jouw zaal is :hall',
     'cinema' => 'Bioscoop',
     'hall' => 'Bioscoop zaal',
+    'hall.row' => 'Bioscoop zaal rij',
     'hall.index' => 'Bioscoop zaal :index',
     'halls' => 'Bioscoop zalen',
     'halls.number' => 'Er zij :halls zalen in deze bioscoop',
@@ -23,4 +24,5 @@ return [
     'time' => 'Tijd',
     'starting_at' => 'Start op :date',
     'seat' => 'Jouw stoel',
+    'seat.number' => 'Stoelen',
 ];

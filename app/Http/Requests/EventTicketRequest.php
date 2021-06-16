@@ -58,8 +58,8 @@ class EventTicketRequest extends FormRequest
             'lastname' => "required|string|between:2,24|regex:/^[a-z ,.'-]+$/i",
             'birthday' => 'required|date|after_or_equal:-100 Years|before_or_equal:-16 Years',
             'photo_path' => 'required|image|max:2048',
-            'start' => 'required|date|after_or_equal:' . $this->route('event')->start_date,
-            'end' => 'required|date|after_or_equal:start_at|before_or_equal:' . $this->route('event')->end_date
+            'start' => 'required|date|after_or_equal:' . $this->route('event')->start,
+            'end' => 'required|date|after_or_equal:start_at|before_or_equal:' . $this->route('event')->end
         ];
     }
 }

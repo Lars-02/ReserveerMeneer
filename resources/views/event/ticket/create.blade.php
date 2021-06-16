@@ -5,7 +5,7 @@
         <div class="h-full bg-white rounded shadow p-4  flex flex-col content-between ">
             <h2>{{ $event->name }}</h2>
             <h3><i class="fas fa-calendar-day"></i> {{ __('event.date') }}</h3>
-            <p>{{ __('event.dates', ['startDate' => date('d-m-Y', strtotime($event->start_date)), 'endDate' => date('d-m-Y', strtotime($event->end_date))]) }}</p>
+            <p>{{ __('event.dates', ['startDate' => date('d-m-Y', strtotime($event->start)), 'endDate' => date('d-m-Y', strtotime($event->end))]) }}</p>
             <h3><i class="fas fa-city"></i> {{ __('general.location') }}</h3>
             <p>{{ __('general.location.city', ['city' => $event->city]) }}</p>
             <p>{{ $event->house_number . ' ' . $event->streetname}}</p>

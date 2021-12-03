@@ -21,7 +21,6 @@ class EventTicketPolicy
     {
         if ($user->abilities()->contains('*.*'))
             return true;
-        return;
     }
 
     /**
